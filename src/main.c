@@ -24,8 +24,9 @@ int main(int argc, char* argv[])
                 sfRenderWindow_close(window);
         }
         if (sfKeyboard_isKeyPressed(sfKeyA)) {
+            sfVector2i mouse_vec = sfMouse_getPosition(NULL);
             sfVertex tmp = {
-                sfMouse_getPosition(NULL),
+                {mouse_vec.x, mouse_vec.y},
                 sfWhite,
                 {0, 0}
             };
