@@ -86,7 +86,10 @@ int main(int argc, char* argv[])
             // sfRectangleShape_setOrigin(car_rect, tmp);
             sfVector2f center = sfRectangleShape_getPosition(car_rect);
             float angle = sfRectangleShape_getRotation(car_rect) * 3.14159265359 / 180.0;
-            sfVector2f z1 = {center.x + car_size.x / 2. * cos(angle), center.y + car_size.y / 2. * sin(angle)};
+            sfVector2f z1 = {
+                center.x - car_origine.x * cos(angle) - car_origine.y * sin(angle),
+                center.y - car_origine.x * sin(angle) + car_origine.y * cos(angle)
+            };
             sfVector2f topRight = {center.x - car_size.x / 2. * sin(angle), center.y + car_size.y / 2. * cos(angle)};
             sfVector2f bottomLeft = {center.x + car_size.x / 2. * sin(angle), center.y - car_size.y / 2. * cos(angle)};
             sfVector2f bottomRight = {center.x - car_size.x / 2. * cos(angle), center.y - car_size.y / 2. * sin(angle)};
