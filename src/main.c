@@ -16,7 +16,6 @@ int main(int argc, char* argv[])
         {{2136, 497}, sfColor_fromRGB(255, 255, 255)},
         {{1582, 493}, sfColor_fromRGB(255, 255, 255)}
     };
-    sfVertexArray_setPrimitiveType(road_right, sfLines);
     while (sfRenderWindow_isOpen(window)) {
         while (sfRenderWindow_pollEvent(window, &event)) {
             if (event.type == sfEvtClosed)
