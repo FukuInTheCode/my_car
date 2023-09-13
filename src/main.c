@@ -102,7 +102,6 @@ int main(int argc, char* argv[])
                 center.x - car_origine.x * cos(angle) + car_origine.y * sin(angle),
                 center.y - car_origine.x * sin(angle) - car_origine.y * cos(angle)
             };
-            sfVector2f z4 = {center.x - car_size.x / 2. * cos(angle), center.y - car_size.y / 2. * sin(angle)};
 
             sides[0].position = z1;
             sides[1].position = z2;
