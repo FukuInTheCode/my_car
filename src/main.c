@@ -10,7 +10,7 @@ int main(int argc, char* argv[])
     sfRectangleShape *car_rect = sfRectangleShape_create();
     sfRectangleShape_setSize(car_rect, car_size);
     sfRectangleShape_setFillColor(car_rect, sfRed);
-    sfRectangleShape_setOrigin()
+    sfRectangleShape_setOrigin(car_rect, car_origine);
     // main
     sfVideoMode mode = {3000, 2000, 32};
     sfRenderWindow *window = sfRenderWindow_create(mode, "my_car", sfDefaultStyle, NULL);
