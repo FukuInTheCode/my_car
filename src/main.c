@@ -5,6 +5,9 @@ int main(int argc, char* argv[])
 {
     // car var
     sfVector2u car_pos;
+    sfVector2f car_size = {10, 30};
+    sfRectangleShape *car_rect = sfRectangleShape_create();
+    sfRectangleShape_setSize(car_rect, car_size);
     // main
     sfVideoMode mode = {3000, 2000, 32};
     sfRenderWindow *window = sfRenderWindow_create(mode, "my_car", sfDefaultStyle, NULL);
@@ -19,6 +22,7 @@ int main(int argc, char* argv[])
     // bool & loop
     bool ended = false;
     bool clicked = false;
+    bool draw_car = false;
     while (sfRenderWindow_isOpen(window)) {
         while (sfRenderWindow_pollEvent(window, &event)) {
             if (event.type == sfEvtClosed)
@@ -52,6 +56,8 @@ int main(int argc, char* argv[])
         sfRenderWindow_clear(window, sfColor_fromRGBA(44, 44, 44, 128));
         sfRenderWindow_drawVertexArray(window, road_r, NULL);
         sfRenderWindow_drawVertexArray(window, road_l, NULL);
+        if (draw_car)
+            sfRenderWindow_drawRectangleShape(window, car_rec, NULL);
         sfRenderWindow_display(window);
     }
     sfRenderWindow_destroy(window);
