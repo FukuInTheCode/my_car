@@ -99,9 +99,8 @@ int main(int argc, char* argv[])
             sides[6].position = bottomLeft;
             sides[7].position = topLeft;
 
-            for (int i = 0; i < 8; i++) {
+            for (int i = 0; i < 8; i++)
                 sides[i].color = sfWhite;
-            }
             for (uint32_t i = 0; i < 8; i += 2) {
                 sfVertex side[] = {sides[i], sides[i + 1]};
                 sfRenderWindow_drawPrimitives(window, side, 2, sfLines, NULL);
