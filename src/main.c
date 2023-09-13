@@ -29,7 +29,7 @@ int main(int argc, char* argv[])
             clicked = true;
             sfVector2i mouse_vec = sfMouse_getPosition(NULL);
             sfVertex tmp = {
-                {mouse_vec.x, mouse_vec.y},
+                {mouse_vec.x - window_pos.x, mouse_vec.y - window_pos.y},
                 sfWhite,
                 {0, 0}
             };
