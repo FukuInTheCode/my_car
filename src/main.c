@@ -107,6 +107,7 @@ int main(int argc, char* argv[])
                 sfVertex side[] = {sides[i], sides[i + 1]};
                 sfRenderWindow_drawPrimitives(window, side, 2, sfLines, NULL);
             }
+            sfRectangleShape_setOrigin(car_rect, car_origine);
         }
         sfRenderWindow_display(window);
     }
