@@ -33,12 +33,14 @@ int main(int argc, char* argv[])
         } else if (clicked && !sfKeyboard_isKeyPressed(sfKeyA))
             clicked = false;
         if (sfKeyboard_isKeyPressed(sfKeyZ) && !ended) {
-            sfVertexArray_append(current_border, *sfVertexArray_getVertex(current_border, 0));
-            clicked = false;
-            if (current_border == road_l)
-                ended = true;
-            else
-                current_border = road_l;
+            if (sfVertexArray_getVertexCount(current_border) > 1) {
+                sfVertexArray_append(current_border, *sfVertexArray_getVertex(current_border, 0));
+                clicked = false;
+                if (current_border == road_l)
+                    ended = true;
+                else
+                    current_border = road_l;
+            }
         }
         sfRenderWindow_clear(window, sfColor_fromRGBA(44, 44, 44, 128));
         sfRenderWindow_drawVertexArray(window, road_r, NULL);
