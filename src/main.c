@@ -34,6 +34,7 @@ int main(int argc, char* argv[])
         if (sfKeyboard_isKeyPressed(sfKeyZ) && !ended) {
             sfVertexArray_append(current_border, *sfVertexArray_getVertex(current_border, 0));
             clicked = false;
+            printf("%zu\n", sfVertexArray_getVertexCount(current_road));
             if (current_border == road_l)
                 ended = true;
             else
