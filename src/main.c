@@ -75,6 +75,13 @@ int main(int argc, char* argv[])
             };
             sfRectangleShape_move(car_rect, dir_vec);
 
+        }
+        // draw
+        sfRenderWindow_clear(window, sfColor_fromRGBA(44, 44, 44, 128));
+        sfRenderWindow_drawVertexArray(window, road_r, NULL);
+        sfRenderWindow_drawVertexArray(window, road_l, NULL);
+        if (draw_car) {
+            sfRenderWindow_drawRectangleShape(window, car_rect, NULL);
             sfVector2f position = sfRectangleShape_getPosition(car_rect);
             sfVector2f size = sfRectangleShape_getSize(car_rect);
             float rotation = sfRectangleShape_getRotation(car_rect) * 3.14159265359 / 180.0;
@@ -95,13 +102,11 @@ int main(int argc, char* argv[])
             for (int i = 0; i < 8; i++) {
                 sides[i].color = sfWhite;
             }
+            for (uint32_t i = 0; i < 8; i += 2) {
+                sfVertex side = {sides[i], sides[i + 1]};
+                sfRenderWindow_drawPrimitives(window, side, 2, sfLines, NULL);
+            }
         }
-        // draw
-        sfRenderWindow_clear(window, sfColor_fromRGBA(44, 44, 44, 128));
-        sfRenderWindow_drawVertexArray(window, road_r, NULL);
-        sfRenderWindow_drawVertexArray(window, road_l, NULL);
-        if (draw_car)
-            sfRenderWindow_drawRectangleShape(window, car_rect, NULL);
         sfRenderWindow_display(window);
     }
     sfRenderWindow_destroy(window);
