@@ -3,7 +3,7 @@
 
 int main(int argc, char* argv[])
 {
-    sfVideoMode mode = {2000, 1500, 32};
+    sfVideoMode mode = {3000, 2000, 32};
     sfRenderWindow *window = sfRenderWindow_create(mode, "my_car", sfDefaultStyle, NULL);
     sfEvent event;
     sfVertexArray *road_r = sfVertexArray_create();
@@ -30,7 +30,6 @@ int main(int argc, char* argv[])
             sfVertexArray_append(current_border, tmp);
             if (sfVertexArray_getVertexCount(current_border) > 1)
                 sfVertexArray_append(current_border, tmp);
-            printf("%zu\n", sfVertexArray_getVertexCount(current_border));
         } else if (clicked && !sfKeyboard_isKeyPressed(sfKeyA))
             clicked = false;
         if (sfKeyboard_isKeyPressed(sfKeyZ) && !ended) {
