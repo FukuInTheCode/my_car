@@ -11,6 +11,8 @@ int main(int argc, char* argv[])
             if (event.type == sfEvtClosed)
                 sfRenderWindow_close(window);
         }
+        if (sfKeyboard_isKeyPressed(sfKeyA))
+            printf("%d, %d\n", sfMouse_getPosition(NULL).x, sfMouse_getPosition(NULL).y);
         sfRenderWindow_clear(window, sfColor_fromRGBA(44, 44, 44, 128));
         sfRenderWindow_display(window);
     }
