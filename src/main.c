@@ -18,6 +18,7 @@ int main(int argc, char* argv[])
     // };
     sfVertexArray *road_r = sfVertexArray_create();
     sfVertexArray_setPrimitiveType(road_r, sfLines);
+    sfVector2i window_pos = sfRenderWindow_getPosition(window);
     bool clicked = false;
     while (sfRenderWindow_isOpen(window)) {
         while (sfRenderWindow_pollEvent(window, &event)) {
