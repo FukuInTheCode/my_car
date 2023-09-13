@@ -24,7 +24,7 @@ int main(int argc, char* argv[])
         }
 
         sfRenderWindow_clear(window, sfColor_fromRGBA(44, 44, 44, 128));
-        sfRenderWindow_drawVertexArray(window, road_right, NULL);
+        sfRenderWindow_drawPrimitives(window, road_right, 8, sfLines, NULL);
         sfRenderWindow_display(window);
     }
     sfRenderWindow_destroy(window);
