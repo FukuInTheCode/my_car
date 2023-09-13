@@ -40,7 +40,7 @@ int main(int argc, char* argv[])
         } else if (clicked && !sfKeyboard_isKeyPressed(sfKeyA))
             clicked = false;
         if (sfKeyboard_isKeyPressed(sfKeyZ) && !ended) {
-            sfVertexArray_append(road_r, sfVertexArray_getVertex(road_r, 0));
+            sfVertexArray_append(road_r, *sfVertexArray_getVertex(road_r, 0));
             ended = true;
             clicked = false;
         }
