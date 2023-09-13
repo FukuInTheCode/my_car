@@ -6,9 +6,11 @@ int main(int argc, char* argv[])
     // car var
     sfVector2f car_pos;
     sfVector2f car_size = {10, 30};
+    sfVector2f car_origine = {car_size.x / 2., car_size.y / 2.};
     sfRectangleShape *car_rect = sfRectangleShape_create();
     sfRectangleShape_setSize(car_rect, car_size);
     sfRectangleShape_setFillColor(car_rect, sfRed);
+    sfRectangleShape_setOrigin()
     // main
     sfVideoMode mode = {3000, 2000, 32};
     sfRenderWindow *window = sfRenderWindow_create(mode, "my_car", sfDefaultStyle, NULL);
@@ -70,7 +72,7 @@ int main(int argc, char* argv[])
         sfRenderWindow_drawVertexArray(window, road_l, NULL);
         if (draw_car) {
             sfRectangleShape *cpy = sfRectangleShape_copy(car_rect);
-            sfVector2f offset = {5, 15};
+            sfVector2f offset = {-5, -15};
             sfRectangleShape_move(cpy, offset);
             sfRenderWindow_drawRectangleShape(window, cpy, NULL);
         }
