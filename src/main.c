@@ -34,6 +34,8 @@ int main(int argc, char* argv[])
                 {0, 0}
             };
             sfVertexArray_append(road_r, tmp);
+            if (sfVertexArray_getVertexCount(road_r) > 1)
+                sfVertexArray_append(road_r, tmp);
         } else if (clicked && !sfKeyboard_isKeyPressed(sfKeyA))
             clicked = false;
 
