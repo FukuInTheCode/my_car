@@ -4,7 +4,7 @@
 int main(int argc, char* argv[])
 {
     // car var
-    sfVector2u car_pos;
+    sfVector2f car_pos;
     sfVector2f car_size = {10, 30};
     sfRectangleShape *car_rect = sfRectangleShape_create();
     sfRectangleShape_setSize(car_rect, car_size);
