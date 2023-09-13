@@ -17,7 +17,9 @@ int main(int argc, char* argv[])
     //     {{1582, 493}, sfColor_fromRGB(255, 255, 255)}
     // };
     sfVertexArray *road_r = sfVertexArray_create();
-    sfVertexArray_setPrimitiveType(road_r, sfLines);
+    sfVertexArray *road_l = sfVertexArray_create();
+    sfVertexArray *current_border = road_r;
+    sfVertexArray_setPrimitiveType(current_border, sfLines);
     sfVector2i window_pos = sfRenderWindow_getPosition(window);
     bool ended = false;
     bool clicked = false;
@@ -34,18 +36,18 @@ int main(int argc, char* argv[])
                 sfWhite,
                 {0, 0}
             };
-            sfVertexArray_append(road_r, tmp);
-            if (sfVertexArray_getVertexCount(road_r) > 1)
-                sfVertexArray_append(road_r, tmp);
+            sfVertexArray_append(current_border, tmp);
+            if (sfVertexArray_getVertexCount(current_border) > 1)
+                sfVertexArray_append(current_border, tmp);
         } else if (clicked && !sfKeyboard_isKeyPressed(sfKeyA))
             clicked = false;
         if (sfKeyboard_isKeyPressed(sfKeyZ) && !ended) {
-            sfVertexArray_append(road_r, *sfVertexArray_getVertex(road_r, 0));
+            sfVertexArray_append(current_border, *sfVertexArray_getVertex(current_border, 0));
             ended = true;
             clicked = false;
         }
         sfRenderWindow_clear(window, sfColor_fromRGBA(44, 44, 44, 128));
-        sfRenderWindow_drawVertexArray(window, road_r, NULL);
+        sfRenderWindow_drawVertexArray(window, current_border, NULL);
         sfRenderWindow_display(window);
     }
     sfRenderWindow_destroy(window);
