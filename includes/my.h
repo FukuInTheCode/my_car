@@ -2,6 +2,4 @@
 #define MYH
 
 #include <stdio.h>
-#include "./test.h"
-
-void hello(void);
+#include "my_car.h"
