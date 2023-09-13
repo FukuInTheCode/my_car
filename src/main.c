@@ -58,6 +58,7 @@ int main(int argc, char* argv[])
             car_pos.x = mouse_vec.x - window_pos.x;
             car_pos.y = mouse_vec.y - window_pos.y;
             draw_car = true;
+            sfRectangleShape_setPosition(car_rect, car_pos);
         }
         // draw
         sfRenderWindow_clear(window, sfColor_fromRGBA(44, 44, 44, 128));
