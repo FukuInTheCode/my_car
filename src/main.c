@@ -82,7 +82,7 @@ int main(int argc, char* argv[])
         sfRenderWindow_drawVertexArray(window, road_l, NULL);
         if (draw_car) {
             sfRenderWindow_drawRectangleShape(window, car_rect, NULL);
-            sfVector2f tmp = {0, 0};
+            sfVector2f tmp = {-1 * car_origine.x, -1 * car_origine.y};
             sfRectangleShape_setOrigin(car_rect, tmp);
             sfVector2f position = sfRectangleShape_getPosition(car_rect);
             sfVector2f size = sfRectangleShape_getSize(car_rect);
