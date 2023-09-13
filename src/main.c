@@ -23,6 +23,7 @@ int main(int argc, char* argv[])
     sfVertexArray_append(road_left, v7);
     VERTEX_DECLA(v8, 1582, 493, sfWhite);
     sfVertexArray_append(road_left, v8);
+    sfVertexArray_setPrimitiveType(road_left, sfLines);
     while (sfRenderWindow_isOpen(window)) {
         while (sfRenderWindow_pollEvent(window, &event)) {
             if (event.type == sfEvtClosed)
@@ -30,6 +31,7 @@ int main(int argc, char* argv[])
         }
 
         sfRenderWindow_clear(window, sfColor_fromRGBA(44, 44, 44, 128));
+        sfRenderWindow_drawVertexArray()
         sfRenderWindow_display(window);
     }
     sfRenderWindow_destroy(window);
