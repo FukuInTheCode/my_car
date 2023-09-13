@@ -19,7 +19,6 @@ int main(int argc, char* argv[])
                 sfRenderWindow_close(window);
         }
         if (sfKeyboard_isKeyPressed(sfKeyA) && !clicked && !ended) {
-            printf("%zu\n", sfVertexArray_getVertexCount(current_border));
             clicked = true;
             sfVector2i mouse_vec = sfMouse_getPosition(NULL);
             sfVertex tmp = {
@@ -30,6 +29,7 @@ int main(int argc, char* argv[])
             sfVertexArray_append(current_border, tmp);
             if (sfVertexArray_getVertexCount(current_border) > 1)
                 sfVertexArray_append(current_border, tmp);
+            printf("%zu\n", sfVertexArray_getVertexCount(current_border));
         } else if (clicked && !sfKeyboard_isKeyPressed(sfKeyA))
             clicked = false;
         if (sfKeyboard_isKeyPressed(sfKeyZ) && !ended) {
