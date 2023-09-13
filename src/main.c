@@ -106,10 +106,10 @@ int main(int argc, char* argv[])
             sides[0].position = z1;
             sides[1].position = z2;
             sides[2].position = z2;
-            sides[3].position = z4;
-            sides[4].position = z4;
-            sides[5].position = z3;
-            sides[6].position = z3;
+            sides[3].position = z3;
+            sides[4].position = z3;
+            sides[5].position = z4;
+            sides[6].position = z4;
             sides[7].position = z1;
 
             for (int i = 0; i < 8; i++)
