@@ -70,12 +70,8 @@ int main(int argc, char* argv[])
         sfRenderWindow_clear(window, sfColor_fromRGBA(44, 44, 44, 128));
         sfRenderWindow_drawVertexArray(window, road_r, NULL);
         sfRenderWindow_drawVertexArray(window, road_l, NULL);
-        if (draw_car) {
-            sfRectangleShape *cpy = sfRectangleShape_copy(car_rect);
-            sfVector2f offset = {-5, -15};
-            sfRectangleShape_move(cpy, offset);
-            sfRenderWindow_drawRectangleShape(window, cpy, NULL);
-        }
+        if (draw_car)
+            sfRenderWindow_drawRectangleShape(window, car_rect, NULL);
         sfRenderWindow_display(window);
     }
     sfRenderWindow_destroy(window);
