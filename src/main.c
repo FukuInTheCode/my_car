@@ -3,15 +3,20 @@
 
 int main(int argc, char* argv[])
 {
+    // car var
+    sfVector2u car_pos;
+    // main
     sfVideoMode mode = {3000, 2000, 32};
     sfRenderWindow *window = sfRenderWindow_create(mode, "my_car", sfDefaultStyle, NULL);
     sfEvent event;
+    // road var
     sfVertexArray *road_r = sfVertexArray_create();
     sfVertexArray *road_l = sfVertexArray_create();
     sfVertexArray *current_border = road_r;
     sfVertexArray_setPrimitiveType(road_l, sfLines);
     sfVertexArray_setPrimitiveType(road_r, sfLines);
     sfVector2i window_pos = sfRenderWindow_getPosition(window);
+    // bool & loop
     bool ended = false;
     bool clicked = false;
     while (sfRenderWindow_isOpen(window)) {
