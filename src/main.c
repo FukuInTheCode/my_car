@@ -19,6 +19,7 @@ int main(int argc, char* argv[])
             if (event.type == sfEvtClosed)
                 sfRenderWindow_close(window);
         }
+        // road drawing
         if (sfKeyboard_isKeyPressed(sfKeyA) && !clicked && !ended) {
             clicked = true;
             sfVector2i mouse_vec = sfMouse_getPosition(NULL);
@@ -42,6 +43,7 @@ int main(int argc, char* argv[])
                     current_border = road_l;
             }
         }
+        // draw
         sfRenderWindow_clear(window, sfColor_fromRGBA(44, 44, 44, 128));
         sfRenderWindow_drawVertexArray(window, road_r, NULL);
         sfRenderWindow_drawVertexArray(window, road_l, NULL);
