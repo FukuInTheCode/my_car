@@ -19,13 +19,14 @@ int main(int argc, char* argv[])
     sfVertexArray *road_r = sfVertexArray_create();
     sfVertexArray_setPrimitiveType(road_r, sfLines);
     sfVector2i window_pos = sfRenderWindow_getPosition(window);
+    bool ended = false;
     bool clicked = false;
     while (sfRenderWindow_isOpen(window)) {
         while (sfRenderWindow_pollEvent(window, &event)) {
             if (event.type == sfEvtClosed)
                 sfRenderWindow_close(window);
         }
-        if (sfKeyboard_isKeyPressed(sfKeyA) && !clicked) {
+        if (sfKeyboard_isKeyPressed(sfKeyA) && !clicked && !ended) {
             clicked = true;
             sfVector2i mouse_vec = sfMouse_getPosition(NULL);
             sfVertex tmp = {
@@ -38,7 +39,11 @@ int main(int argc, char* argv[])
                 sfVertexArray_append(road_r, tmp);
         } else if (clicked && !sfKeyboard_isKeyPressed(sfKeyA))
             clicked = false;
-
+        if (sfKeyboard_isKeyPressed(sfKeyZ)) {
+            sfVertexArray_append(road_r, sfVertexArray_getVertex(road_r, 0));
+            ended = true;
+            clicked = false;
+        }
         sfRenderWindow_clear(window, sfColor_fromRGBA(44, 44, 44, 128));
         sfRenderWindow_drawVertexArray(window, road_r, NULL);
         sfRenderWindow_display(window);
