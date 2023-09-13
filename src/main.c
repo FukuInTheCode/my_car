@@ -65,7 +65,7 @@ int main(int argc, char* argv[])
         sfRenderWindow_drawVertexArray(window, road_r, NULL);
         sfRenderWindow_drawVertexArray(window, road_l, NULL);
         if (draw_car)
-            sfRenderWindow_drawRectangleShape(window, car_rec, NULL);
+            sfRenderWindow_drawRectangleShape(window, car_rect, NULL);
         sfRenderWindow_display(window);
     }
     sfRenderWindow_destroy(window);
