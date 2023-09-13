@@ -85,21 +85,20 @@ int main(int argc, char* argv[])
             // sfVector2f tmp = {-1 * car_origine.x, -1 * car_origine.y};
             // sfRectangleShape_setOrigin(car_rect, tmp);
             sfVector2f center = sfRectangleShape_getPosition(car_rect);
-            sfVector2f size = sfRectangleShape_getSize(car_rect);
             float angle = sfRectangleShape_getRotation(car_rect) * 3.14159265359 / 180.0;
-            sfVector2f topLeft = {center.x + car_size.x / 2. * cos(angle), center.y + car_size.y / 2. * sin(angle)};
+            sfVector2f z1 = {center.x + car_size.x / 2. * cos(angle), center.y + car_size.y / 2. * sin(angle)};
             sfVector2f topRight = {center.x - car_size.x / 2. * sin(angle), center.y + car_size.y / 2. * cos(angle)};
             sfVector2f bottomLeft = {center.x + car_size.x / 2. * sin(angle), center.y - car_size.y / 2. * cos(angle)};
             sfVector2f bottomRight = {center.x - car_size.x / 2. * cos(angle), center.y - car_size.y / 2. * sin(angle)};
 
-            sides[0].position = topLeft;
+            sides[0].position = z1;
             sides[1].position = topRight;
             sides[2].position = topRight;
             sides[3].position = bottomRight;
             sides[4].position = bottomRight;
             sides[5].position = bottomLeft;
             sides[6].position = bottomLeft;
-            sides[7].position = topLeft;
+            sides[7].position = z1;
 
             for (int i = 0; i < 8; i++)
                 sides[i].color = sfWhite;
