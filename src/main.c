@@ -53,6 +53,12 @@ int main(int argc, char* argv[])
                     current_border = road_l;
             }
         }
+        if (ended && sfKeyboard_isKeyPressed(sfKeyA) && !draw_car) {
+            sfVector2i mouse_vec = sfMouse_getPosition(NULL);
+            car_pos.x = mouse_vec.x - window_pos.x;
+            car_pos.y = mouse_vec.y - window_pos.y;
+            draw_car = true;
+        }
         // draw
         sfRenderWindow_clear(window, sfColor_fromRGBA(44, 44, 44, 128));
         sfRenderWindow_drawVertexArray(window, road_r, NULL);
