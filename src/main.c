@@ -73,6 +73,27 @@ int main(int argc, char* argv[])
                 sin(theta + PI / 2.)
             };
             sfRectangleShape_move(car_rect, dir_vec);
+
+            sfVector2f position = sfRectangleShape_getPosition(car_rect);
+            sfVector2f size = sfRectangleShape_getSize(car_rect);
+            float rotation = sfRectangleShape_getRotation(car_rect) * 3.14159265359 / 180.0;
+            sfVector2f topLeft = position;
+            sfVector2f topRight = {position.x + size.x * cos(rotation), position.y + size.x * sin(rotation)};
+            sfVector2f bottomLeft = {position.x - size.y * sin(rotation), position.y + size.y * cos(rotation)};
+            sfVector2f bottomRight = {position.x + size.x * cos(rotation) - size.y * sin(rotation), position.y + size.x * sin(rotation) + size.y * cos(rotation)};
+
+            sides[0].position = topLeft;
+            sides[1].position = topRight;
+            sides[2].position = topRight;
+            sides[3].position = bottomRight;
+            sides[4].position = bottomRight;
+            sides[5].position = bottomLeft;
+            sides[6].position = bottomLeft;
+            sides[7].position = topLeft;
+
+            for (int i = 0; i < 8; i++) {
+                sides[i].color = sfWhite;
+            }
         }
         // draw
         sfRenderWindow_clear(window, sfColor_fromRGBA(44, 44, 44, 128));
