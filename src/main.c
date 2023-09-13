@@ -84,15 +84,13 @@ int main(int argc, char* argv[])
             sfRenderWindow_drawRectangleShape(window, car_rect, NULL);
             // sfVector2f tmp = {-1 * car_origine.x, -1 * car_origine.y};
             // sfRectangleShape_setOrigin(car_rect, tmp);
-            sfVector2f position = sfRectangleShape_getPosition(car_rect);
-            position.x -= car_origine.x;
-            position.y -= car_origine.y;
+            sfVector2f center = sfRectangleShape_getPosition(car_rect);
             sfVector2f size = sfRectangleShape_getSize(car_rect);
-            float rotation = sfRectangleShape_getRotation(car_rect) * 3.14159265359 / 180.0;
-            sfVector2f topLeft = position;
-            sfVector2f topRight = {position.x + size.x * cos(rotation), position.y + size.x * sin(rotation)};
-            sfVector2f bottomLeft = {position.x - size.y * sin(rotation), position.y + size.y * cos(rotation)};
-            sfVector2f bottomRight = {position.x + size.x * cos(rotation) - size.y * sin(rotation), position.y + size.x * sin(rotation) + size.y * cos(rotation)};
+            float angle = sfRectangleShape_getRotation(car_rect) * 3.14159265359 / 180.0;
+            sfVector2f topLeft = {center.x + car_size.x / 2. * cos(angle), center.y + car_size.y / 2. * sin(angle)};
+            sfVector2f topRight = {center.x - car_size.x / 2. * sin(angle), center.y + car_size.y / 2. * cos(angle)};
+            sfVector2f bottomLeft = {center.x + car_size.x / 2. * sin(angle), center.y - car_size.y / 2. * cos(angle)};
+            sfVector2f bottomRight = {center.x - car_size.x / 2. * cos(angle), center.y - car_size.y / 2. * sin(angle)};
 
             sides[0].position = topLeft;
             sides[1].position = topRight;
