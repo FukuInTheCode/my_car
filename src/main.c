@@ -8,7 +8,7 @@ int main(int argc, char* argv[])
     sfEvent event;
     while (sfRenderWindow_isOpen(window)) {
         while (sfRenderWindow_pollEvent(window, &event)) {
-            if (event->type == sfEvtClosed)
+            if (event.type == sfEvtClosed)
                 sfRenderWindow_close(window);
         }
         sfRenderWindow_clear(window, sfColor_fromRGBA(44, 44, 44, 128));
