@@ -67,7 +67,12 @@ int main(int argc, char* argv[])
         if (draw_car && sfKeyboard_isKeyPressed(sfKeyRight))
             sfRectangleShape_rotate(car_rect, 1);
         if (draw_car && sfKeyboard_isKeyPressed(sfKeyW)) {
-            float theta = sfRectangleShape_getRotation(car_rect) * PI
+            double theta = sfRectangleShape_getRotation(car_rect) * PI / 180.;
+            sfVector2f dir_vec = {
+                cos(theta),
+                sin(theta)
+            };
+            printf("%lf, %lf, %lf\n", theta, dir_vec.x, dir_vec.y);
         }
         // draw
         sfRenderWindow_clear(window, sfColor_fromRGBA(44, 44, 44, 128));
