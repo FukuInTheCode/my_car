@@ -132,8 +132,8 @@ int main(int argc, char* argv[])
                 sfVector2f intersection_pt;
                 for (uint32_t j = 0; j < sfVertexArray_getVertexCount(road_l); j += 2) {
                     sfVertex line[] = {
-                        sfVertexArray_getVertex(road_l, i),
-                        sfVertexArray_getVertex(road_l, i + 1)
+                        *sfVertexArray_getVertex(road_l, i),
+                        *sfVertexArray_getVertex(road_l, i + 1)
                     };
                     if (!is_intersecting(side, line, &intersection_pt))
                         continue;
@@ -144,8 +144,8 @@ int main(int argc, char* argv[])
                 }
                 for (uint32_t j = 0; j < sfVertexArray_getVertexCount(road_r) && !is_intersec; j += 2) {
                     sfVertex line[] = {
-                        sfVertexArray_getVertex(road_r, i),
-                        sfVertexArray_getVertex(road_r, i + 1)
+                        *sfVertexArray_getVertex(road_r, i),
+                        *sfVertexArray_getVertex(road_r, i + 1)
                     };
                     if (!is_intersecting(side, line, &intersection_pt))
                         continue;
