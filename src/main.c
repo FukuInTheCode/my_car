@@ -99,13 +99,13 @@ int main(int argc, char* argv[])
             sfRectangleShape_setPosition(car_rect, car_pos);
         }
 
-        if (draw_car && sfKeyboard_isKeyPressed(sfKeyA) && car_angular_acceleration > - max_angular_speed)
+        if (draw_car && sfKeyboard_isKeyPressed(sfKeyA) && car_angular_velocity > - max_angular_speed)
             car_angular_acceleration = -1;
-        if (draw_car && sfKeyboard_isKeyPressed(sfKeyD) && car_angular_acceleration < max_angular_speed)
+        if (draw_car && sfKeyboard_isKeyPressed(sfKeyD) && car_angular_velocity < max_angular_speed)
             car_angular_acceleration = 1;
-        if (draw_car && sfKeyboard_isKeyPressed(sfKeyW) && car_acceleration < max_speed)
+        if (draw_car && sfKeyboard_isKeyPressed(sfKeyW) && car_velocity < max_speed)
             car_acceleration = 1;
-        if (draw_car && sfKeyboard_isKeyPressed(sfKeyS) && car_acceleration > - max_speed)
+        if (draw_car && sfKeyboard_isKeyPressed(sfKeyS) && car_velocity > - max_speed)
             car_acceleration = -1;
 
         if (car_acceleration < 0 && draw_car)
@@ -127,6 +127,7 @@ int main(int argc, char* argv[])
             car_angular_velocity = my_min_between(car_angular_velocity + 0.4, 0);
         else if (car_angular_velocity > 0 && draw_car)
             car_angular_velocity = my_max_between(car_angular_velocity - 0.4, 0);
+        printf()
         // draw
         sfRenderWindow_clear(window, sfColor_fromRGBA(44, 44, 44, 128));
         sfRenderWindow_drawVertexArray(window, road_r, NULL);
@@ -245,14 +246,14 @@ int main(int argc, char* argv[])
             MAT_DECLA(pred);
             my_nn_predict(&car_brain, &inputs, &pred);
             uint32_t id = my_matrix_find_row_index(&inputs, 0, my_matrix_max(&inputs));
-            if (id == 0)
-                car_angular_acceleration = -1;
-            if (id == 1)
-                car_angular_acceleration = 1;
-            if (id == 2)
-                car_acceleration = 1;
-            if (id == 3)
-                car_acceleration = -1;
+            // if (id == 0)
+            //     car_angular_acceleration = -1;
+            // if (id == 1)
+            //     car_angular_acceleration = 1;
+            // if (id == 2)
+            //     car_acceleration = 1;
+            // if (id == 3)
+            //     car_acceleration = -1;
             sfRenderWindow_drawRectangleShape(window, car_rect, NULL);
         }
         sfRenderWindow_display(window);
