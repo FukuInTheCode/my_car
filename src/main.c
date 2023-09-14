@@ -137,12 +137,12 @@ int main(int argc, char* argv[])
                     };
                     if (!is_intersecting(side, line, &intersection_pt))
                         continue;
-                    is_intersecting = true;
+                    is_intersec = true;
                     side[0].color = sfGreen;
                     side[1].color = sfGreen;
                     break;
                 }
-                for (uint32_t j = 0; j < sfVertexArray_getVertexCount(road_r) && !is_intersecting; j += 2) {
+                for (uint32_t j = 0; j < sfVertexArray_getVertexCount(road_r) && !is_intersec; j += 2) {
                     sfVertex line[] = {
                         sfVertexArray_getVertex(road_r, i),
                         sfVertexArray_getVertex(road_r, i + 1)
@@ -151,7 +151,7 @@ int main(int argc, char* argv[])
                         continue;
                     side[0].color = sfGreen;
                     side[1].color = sfGreen;
-                    is_intersecting = true;
+                    is_intersec = true;
                 }
                 sfRenderWindow_drawPrimitives(window, side, 2, sfLines, NULL);
             }
