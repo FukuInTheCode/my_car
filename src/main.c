@@ -235,7 +235,8 @@ int main(int argc, char* argv[])
                     sfCircleShape_setRadius(pt, 10);
                     sfRenderWindow_drawCircleShape(window, pt, NULL);
                     sfCircleShape_destroy(pt);
-                    my_matrix_set(&inputs, 2 * i, 0, inter_vec)
+                    my_matrix_set(&inputs, 2 * i, 0, inter_vec.x);
+                    my_matrix_set(&inputs, 2 * i, 0, inter_vec.y);
                 }
             }
             sfRenderWindow_drawRectangleShape(window, car_rect, NULL);
