@@ -20,6 +20,9 @@ int main(int argc, char* argv[])
     // env var
     // car var
     NN_DECLA(car_brain);
+    car_brain.acti_type = base_type;
+    car_brain.funcs.af = my_nn_sigmoid;
+    car_brain.funcs.grad_af = my_nn_sigmoid_grad;
     double car_acceleration = 0;
     double car_angular_acceleration = 0;
     double car_velocity = 0;
