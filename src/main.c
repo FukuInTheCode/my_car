@@ -107,9 +107,9 @@ int main(int argc, char* argv[])
             car_velocity = my_max_between(car_velocity - 0.3, 0);
 
         if (car_angular_acceleration < 0 && draw_car)
-            car_angular_acceleration = my_min_between(car_angular_acceleration + 0.3, 0);
+            car_angular_acceleration = my_min_between(car_angular_acceleration + 0.4, 0);
         else if (car_angular_acceleration > 0 && draw_car)
-            car_angular_acceleration = my_max_between(car_angular_acceleration - 0.3, 0);
+            car_angular_acceleration = my_max_between(car_angular_acceleration - 0.4, 0);
         car_angular_velocity += car_angular_acceleration;
         if (car_angular_velocity < 0 && draw_car)
             car_angular_velocity = my_min_between(car_angular_velocity + 0.4, 0);
