@@ -201,6 +201,8 @@ int main(int argc, char* argv[])
                     {center, sfWhite, {0, 0}},
                     {{center.x + sight_powah * cos(angle + sight_angles[i] + PI / 2), center.y + sight_powah * sin(angle + sight_angles[i]  + PI / 2)}, sfWhite, {0, 0}},
                 };
+                my_matrix_set(&inputs, 2 * i, 0, 0);
+                my_matrix_set(&inputs, 2 * i + 1, 0, 0);
                 for (uint32_t j = 0; j < sfVertexArray_getVertexCount(road_l); j += 2) {
                     sfVertex line[] = {
                         *sfVertexArray_getVertex(road_l, j),
