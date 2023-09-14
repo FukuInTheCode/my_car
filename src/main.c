@@ -239,6 +239,7 @@ int main(int argc, char* argv[])
                     my_matrix_set(&inputs, 2 * i + 1, 0, inter_vec.y);
                 }
             }
+            MAT_PRINT(inputs);
             sfRenderWindow_drawRectangleShape(window, car_rect, NULL);
         }
         sfRenderWindow_display(window);
