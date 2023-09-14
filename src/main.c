@@ -161,7 +161,7 @@ int main(int argc, char* argv[])
                 sfRectangleShape_setFillColor(car_rect, sfRed);
             sfVertex tmp_sl[] = {
                 {center, sfWhite, {0, 0}},
-                {{center.x + 100 * cos(angle + test), center.y + 100 * sin(angle + test)}, sfWhite, {0, 0}},
+                {{center.x + 100 * cos(angle + test + PI / 2), center.y + 100 * sin(angle + test  + PI / 2)}, sfWhite, {0, 0}},
             };
             // sfVertex tmp_sl[] = {
             //     {center, sfWhite, {0, 0}},
