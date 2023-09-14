@@ -191,10 +191,13 @@ int main(int argc, char* argv[])
                     is_intersec = true;
                 }
             }
-            if (is_intersec)
+            if (is_intersec) {
                 sfRectangleShape_setFillColor(car_rect, sfGreen);
-            else
+                is_crash = true;
+            } else {
+                is_crash = false;
                 sfRectangleShape_setFillColor(car_rect, sfRed);
+            }
 
             MAT_DECLA(inputs);
             my_matrix_create(sight_l_n * 2 + 2, 1, 1, &inputs);
