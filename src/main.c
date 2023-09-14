@@ -124,9 +124,9 @@ int main(int argc, char* argv[])
             sides[6].position = z4;
             sides[7].position = z1;
 
+            bool is_intersec = false;
             for (uint32_t i = 0; i < 8; i += 2) {
                 sfVertex side[] = {sides[i], sides[i + 1]};
-                bool is_intersec = false;
                 sfVector2f intersection_pt;
                 for (uint32_t j = 0; j < sfVertexArray_getVertexCount(road_l); j += 2) {
                     sfVertex line[] = {
@@ -147,11 +147,11 @@ int main(int argc, char* argv[])
                         continue;
                     is_intersec = true;
                 }
-                if (is_intersec)
-                    sfRectangleShape_setFillColor(car_rect, sfGreen);
-                else
-                    sfRectangleShape_setFillColor(car_rect, sfRed);
             }
+            if (is_intersec)
+                sfRectangleShape_setFillColor(car_rect, sfGreen);
+            else
+                sfRectangleShape_setFillColor(car_rect, sfRed);
             sfRenderWindow_drawRectangleShape(window, car_rect, NULL);
         }
         sfRenderWindow_display(window);
