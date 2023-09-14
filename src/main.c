@@ -29,7 +29,11 @@ int main(int argc, char* argv[])
     sfRectangleShape_setFillColor(car_rect, sfRed);
     sfRectangleShape_setOrigin(car_rect, car_origine);
     sfVertex sides[8];
-    sfVector2f sight_l1 = {0, 70};
+    sfVector2f sight_l1[] = {
+        {100 * cos(), 100},
+        {}
+    };
+    double test = 0;
     // main
     sfVideoMode mode = {3000, 2000, 32};
     sfRenderWindow *window = sfRenderWindow_create(mode, "my_car", sfDefaultStyle, NULL);
@@ -157,8 +161,12 @@ int main(int argc, char* argv[])
                 sfRectangleShape_setFillColor(car_rect, sfRed);
             sfVertex tmp_sl[] = {
                 {center, sfWhite, {0, 0}},
-                {{center.x + sight_l1.x * cos(angle) - sight_l1.y * sin(angle), center.y + sight_l1.x * sin(angle) + sight_l1.y * cos(angle)}, sfWhite, {0, 0}},
+                {{center.x + 100 * cos(angle + test), center.y + 100 * sin(angle + test)}, sfWhite, {0, 0}},
             };
+            // sfVertex tmp_sl[] = {
+            //     {center, sfWhite, {0, 0}},
+            //     {{center.x + sight_l1.x * cos(angle) - sight_l1.y * sin(angle), center.y + sight_l1.x * sin(angle) + sight_l1.y * cos(angle)}, sfWhite, {0, 0}},
+            // };
             sfRenderWindow_drawPrimitives(window, tmp_sl, 2, sfLines, NULL);
             sfRenderWindow_drawRectangleShape(window, car_rect, NULL);
         }
