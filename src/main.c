@@ -18,8 +18,8 @@ static bool is_intersecting(sfVertex *line1, sfVertex *line2, sfVector2f *res)
 int main(int argc, char* argv[])
 {
     // env var
-    // double friction = 
     // car var
+    NN_DECLA(car_brain);
     double car_acceleration = 0;
     double car_angular_acceleration = 0;
     double car_velocity = 0;
@@ -96,6 +96,7 @@ int main(int argc, char* argv[])
             car_acceleration = 1;
         if (draw_car && sfKeyboard_isKeyPressed(sfKeyS))
             car_acceleration = -1;
+        
         if (car_acceleration < 0 && draw_car)
             car_acceleration = my_min_between(car_acceleration + 0.3, 0);
         else if (car_acceleration > 0 && draw_car)
