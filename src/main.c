@@ -19,10 +19,6 @@ int main(int argc, char* argv[])
 {
     // env var
     // car var
-    NN_DECLA(car_brain);
-    car_brain.acti_type = base_type;
-    car_brain.funcs.af = my_nn_sigmoid;
-    car_brain.funcs.grad_af = my_nn_sigmoid_grad;
     double car_acceleration = 0;
     double car_angular_acceleration = 0;
     double car_velocity = 0;
@@ -40,6 +36,13 @@ int main(int argc, char* argv[])
             - PI / 8 * 5, PI / 8 * 6, - PI / 8 * 6, PI / 8 * 7, - PI / 8 * 7};
     uint32_t sight_l_n = sizeof(sight_angles) / sizeof(double);
     double sight_powah = 100.;
+    NN_DECLA(car_brain);
+    car_brain.acti_type = base_type;
+    car_brain.funcs.af = my_nn_sigmoid;
+    car_brain.funcs.grad_af = my_nn_sigmoid_grad;
+    uint32_t dims[] = {sight_l_n, 32, 16, 8, 4};
+    car_brain.dims = dims;
+    car_brain.size = sizeof(dims) / sizeof(dims[0]);
     // main
     sfVideoMode mode = {3000, 2000, 32};
     sfRenderWindow *window = sfRenderWindow_create(mode, "my_car", sfDefaultStyle, NULL);
