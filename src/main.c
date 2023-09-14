@@ -33,7 +33,7 @@ int main(int argc, char* argv[])
     //     {100 * cos(), 100},
     //     {}
     // };
-    double test = 0;
+    double sight_angle[] = {0, PI / 2, - PI / 2};
     // main
     sfVideoMode mode = {3000, 2000, 32};
     sfRenderWindow *window = sfRenderWindow_create(mode, "my_car", sfDefaultStyle, NULL);
