@@ -89,9 +89,9 @@ int main(int argc, char* argv[])
             sfRectangleShape_setPosition(car_rect, car_pos);
         }
         if (draw_car && sfKeyboard_isKeyPressed(sfKeyA))
-            car_angular_acceleration = -1. / 2.;
+            car_angular_acceleration = -1;
         if (draw_car && sfKeyboard_isKeyPressed(sfKeyD))
-            car_angular_acceleration = 1. / 2.;
+            car_angular_acceleration = 1;
         if (draw_car && sfKeyboard_isKeyPressed(sfKeyW))
             car_acceleration = 1;
         if (draw_car && sfKeyboard_isKeyPressed(sfKeyS))
@@ -105,6 +105,7 @@ int main(int argc, char* argv[])
             car_velocity = my_min_between(car_velocity + 0.3, 0);
         else if (car_velocity > 0 && draw_car)
             car_velocity = my_max_between(car_velocity - 0.3, 0);
+
         if (car_angular_acceleration < 0 && draw_car)
             car_angular_acceleration = my_min_between(car_angular_acceleration + 0.3, 0);
         else if (car_angular_acceleration > 0 && draw_car)
