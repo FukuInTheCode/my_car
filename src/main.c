@@ -19,6 +19,7 @@ static bool is_intersecting(sfVertex *line1, sfVertex *line2, sfVector2f *res)
 int main(int argc, char* argv[])
 {
     // car var
+    double car_velocity = 10.;
     sfVector2f car_pos;
     sfVector2f car_size = {10, 30};
     sfVector2f car_origine = {car_size.x / 2., car_size.y / 2.};
