@@ -136,6 +136,7 @@ int main(int argc, char* argv[])
                     if (!is_intersecting(side, line, &intersection_pt))
                         continue;
                     is_intersecting = true;
+                    break;
                 }
                 for (uint32_t j = 0; j < sfVertexArray_getVertexCount(road_r) && !is_intersecting; j += 2) {
                     sfVertex line[] = {
