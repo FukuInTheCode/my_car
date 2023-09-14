@@ -3,8 +3,8 @@
 
 static bool is_intersecting(sfVertex *line1, sfVertex *line2, sfVector2f *res)
 {
-    sfVector2f s1 = {line1[1].position.x - line1[0].positon.x, line1[1].position.y - line1[0].positon.y};
-    sfVector2f s2 = {line2[1].position.x - line2[0].positon.x, line2[1].position.y - line2[0].positon.y};
+    sfVector2f s1 = {line1[1].position.x - line1[0].position.x, line1[1].position.y - line1[0].position.y};
+    sfVector2f s2 = {line2[1].position.x - line2[0].position.x, line2[1].position.y - line2[0].position.y};
     double s = (s1.y * (line2[0].position.x - line1[0].position.x) - s1.x * (line2[0].position.y - line1[0].position.y)) / (s1.x * s2.y - s2.x * s1.y);
     double t = (s2.x * (line1[0].position.y - line2[0].position.y) - s2.y * (line1[0].position.x - line2[0].position.x)) / (s1.x * s2.y - s2.x * s1.y);
     if (s >= 0 && s <= 1 && t >= 0 && t <= 1) {
