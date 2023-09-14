@@ -62,6 +62,7 @@ int main(int argc, char* argv[])
     bool ended = false;
     bool clicked = false;
     bool draw_car = false;
+    bool is_crash = false;
     while (sfRenderWindow_isOpen(window)) {
         while (sfRenderWindow_pollEvent(window, &event)) {
             if (event.type == sfEvtClosed)
