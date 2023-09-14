@@ -159,15 +159,13 @@ int main(int argc, char* argv[])
                 sfRectangleShape_setFillColor(car_rect, sfGreen);
             else
                 sfRectangleShape_setFillColor(car_rect, sfRed);
-            sfVertex tmp_sl[] = {
-                {center, sfWhite, {0, 0}},
-                {{center.x + 100 * cos(angle + test + PI / 2), center.y + 100 * sin(angle + test  + PI / 2)}, sfWhite, {0, 0}},
-            };
-            // sfVertex tmp_sl[] = {
-            //     {center, sfWhite, {0, 0}},
-            //     {{center.x + sight_l1.x * cos(angle) - sight_l1.y * sin(angle), center.y + sight_l1.x * sin(angle) + sight_l1.y * cos(angle)}, sfWhite, {0, 0}},
-            // };
-            sfRenderWindow_drawPrimitives(window, tmp_sl, 2, sfLines, NULL);
+            for (uint32_t i = 0; i < sight_l_n; ++i) {
+                sfVertex tmp_sl[] = {
+                    {center, sfWhite, {0, 0}},
+                    {{center.x + 100 * cos(angle + sight_angle[i] + PI / 2), center.y + 100 * sin(angle + sight_angle[i]  + PI / 2)}, sfWhite, {0, 0}},
+                };
+                sfRenderWindow_drawPrimitives(window, tmp_sl, 2, sfLines, NULL);
+            }
             sfRenderWindow_drawRectangleShape(window, car_rect, NULL);
         }
         sfRenderWindow_display(window);
