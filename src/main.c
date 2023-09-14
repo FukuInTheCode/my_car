@@ -81,7 +81,7 @@ int main(int argc, char* argv[])
                     current_border = road_l;
             }
         }
-        if (ended && sfKeyboard_isKeyPressed(sfKeyA) && !draw_car) {
+        if (ended && sfKeyboard_isKeyPressed(sfKeySpace) && !draw_car) {
             sfVector2i mouse_vec = sfMouse_getPosition(NULL);
             car_pos.x = mouse_vec.x - window_pos.x;
             car_pos.y = mouse_vec.y - window_pos.y;
