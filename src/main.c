@@ -254,8 +254,7 @@ int main(int argc, char* argv[])
             if (is_crash) {
                 car_velocity = 0;
                 car_angular_velocity = 0;
-            } else
-                my_matrix_print(2, &inputs, &pred);
+            }
             if (id == 0 && car_angular_velocity > - max_angular_speed && !is_crash)
                 car_angular_acceleration = -1;
             if (id == 1 && car_angular_velocity < max_angular_speed && !is_crash)
