@@ -28,8 +28,8 @@ int main(int argc, char* argv[])
     sfRectangleShape_setOrigin(car_rect, car_origine);
     sfVertex sides[8];
     sfVertex sight_l1[] = {
-        {car_origine, sfWhite, {0, 0}},
-        {{car_origine.x, car_origine.y + 70}, sfWhite, {0, 0}}
+        {{0, 0}, sfWhite, {0, 0}},
+        {{0, 70}, sfWhite, {0, 0}}
     };
     // main
     sfVideoMode mode = {3000, 2000, 32};
