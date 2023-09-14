@@ -43,6 +43,8 @@ int main(int argc, char* argv[])
     uint32_t dims[] = {sight_l_n, 32, 16, 8, 4};
     car_brain.dims = dims;
     car_brain.size = sizeof(dims) / sizeof(dims[0]);
+    my_nn_create(&car_brain);
+    my_nn_print(&car_brain);
     // main
     sfVideoMode mode = {3000, 2000, 32};
     sfRenderWindow *window = sfRenderWindow_create(mode, "my_car", sfDefaultStyle, NULL);
