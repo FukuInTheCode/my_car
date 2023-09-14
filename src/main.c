@@ -164,7 +164,7 @@ int main(int argc, char* argv[])
             for (uint32_t i = 0; i < sight_l_n; ++i) {
                 sfVertex tmp_sl[] = {
                     {center, sfWhite, {0, 0}},
-                    {{center.x + 100 * cos(angle + sight_angles[i] + PI / 2), center.y + 100 * sin(angle + sight_angles[i]  + PI / 2)}, sfWhite, {0, 0}},
+                    {{center.x + sight_powah * cos(angle + sight_angles[i] + PI / 2), center.y + sight_powah * sin(angle + sight_angles[i]  + PI / 2)}, sfWhite, {0, 0}},
                 };
                 sfRenderWindow_drawPrimitives(window, tmp_sl, 2, sfLines, NULL);
             }
