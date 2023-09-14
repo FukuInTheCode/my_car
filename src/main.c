@@ -1,6 +1,12 @@
 #include "../includes/my.h"
 
 
+static bool is_intersecting(sfVertex **line1, sfVertex **line2, sfVector2f *res)
+{
+    sfVector2f s1 = {(*line1)[1].position.x - (*line1)[0].positon.x, (*line1)[1].position.y - (*line1)[0].positon.y};
+    sfVector2f s2 = {(*line2)[1].position.x - (*line2)[0].positon.x, (*line2)[1].position.y - (*line2)[0].positon.y};
+}
+
 int main(int argc, char* argv[])
 {
     // car var
@@ -112,7 +118,7 @@ int main(int argc, char* argv[])
 
             for (uint32_t i = 0; i < 8; i += 2) {
                 sfVertex side[] = {sides[i], sides[i + 1]};
-
+                
                 sfRenderWindow_drawPrimitives(window, side, 2, sfLines, NULL);
             }
         }
