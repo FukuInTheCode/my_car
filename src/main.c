@@ -189,16 +189,24 @@ int main(int argc, char* argv[])
                     {center, sfWhite, {0, 0}},
                     {{center.x + sight_powah * cos(angle + sight_angles[i] + PI / 2), center.y + sight_powah * sin(angle + sight_angles[i]  + PI / 2)}, sfWhite, {0, 0}},
                 };
-                for (uint32_t j = 0; j < sfVertexArray_getVertexCount(road_l); ++j) {
-                    if (!is_intersecting(tmp_sl, sfVertexArray_getVertex(road_l, j), &inter_vec))
+                for (uint32_t j = 0; j < sfVertexArray_getVertexCount(road_l); j += 2) {
+                    sfVertex line[] = {
+                        *sfVertexArray_getVertex(road_l, i),
+                        *sfVertexArray_getVertex(road_l, i + 1)
+                    };
+                    if (!is_intersecting(tmp_sl, line, &inter_vec))
                         continue;
                     see_road = true;
                     tmp_sl[0].color = sfGreen;
                     tmp_sl[1].color = sfGreen;
                     break;
                 }
-                for (uint32_t j = 0; j < sfVertexArray_getVertexCount(road_r) && !see_road; ++j) {
-                    if (!is_intersecting(tmp_sl, sfVertexArray_getVertex(road_r, j), &inter_vec))
+                for (uint32_t j = 0; j < sfVertexArray_getVertexCount(road_r) && !see_road; j += 2) {
+                    sfVertex line[] = {
+                        *sfVertexArray_getVertex(road_r, i),
+                        *sfVertexArray_getVertex(road_r, i + 1)
+                    };
+                    if (!is_intersecting(tmp_sl, line, &inter_vec))
                         continue;
                     see_road = true;
                     tmp_sl[0].color = sfGreen;
