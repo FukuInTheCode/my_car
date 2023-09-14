@@ -95,6 +95,7 @@ int main(int argc, char* argv[])
             draw_car = true;
             sfRectangleShape_setPosition(car_rect, car_pos);
         }
+
         if (draw_car && sfKeyboard_isKeyPressed(sfKeyA))
             car_angular_acceleration = -1;
         if (draw_car && sfKeyboard_isKeyPressed(sfKeyD))
@@ -190,6 +191,7 @@ int main(int argc, char* argv[])
                 sfRectangleShape_setFillColor(car_rect, sfGreen);
             else
                 sfRectangleShape_setFillColor(car_rect, sfRed);
+
             for (uint32_t i = 0; i < sight_l_n; ++i) {
                 sfVector2f inter_vec;
                 bool see_road = false;
@@ -197,6 +199,8 @@ int main(int argc, char* argv[])
                     {center, sfWhite, {0, 0}},
                     {{center.x + sight_powah * cos(angle + sight_angles[i] + PI / 2), center.y + sight_powah * sin(angle + sight_angles[i]  + PI / 2)}, sfWhite, {0, 0}},
                 };
+                MAT_DECLA(inputs);
+                my_matrix_create(sight_l_n, 1, 1, &inputs);
                 for (uint32_t j = 0; j < sfVertexArray_getVertexCount(road_l); j += 2) {
                     sfVertex line[] = {
                         *sfVertexArray_getVertex(road_l, j),
