@@ -33,8 +33,9 @@ int main(int argc, char* argv[])
     //     {100 * cos(), 100},
     //     {}
     // };
-    uint32_t sight_l_n = 3;
-    double sight_angle[] = {0, PI / 2, - PI / 2};
+    double sight_angles[] = {0, PI / 2, - PI / 2};
+    uint32_t sight_l_n = sizeof(sight_angles) / sizeof(double);
+    double sight_powah = 100.;
     // main
     sfVideoMode mode = {3000, 2000, 32};
     sfRenderWindow *window = sfRenderWindow_create(mode, "my_car", sfDefaultStyle, NULL);
@@ -163,7 +164,7 @@ int main(int argc, char* argv[])
             for (uint32_t i = 0; i < sight_l_n; ++i) {
                 sfVertex tmp_sl[] = {
                     {center, sfWhite, {0, 0}},
-                    {{center.x + 100 * cos(angle + sight_angle[i] + PI / 2), center.y + 100 * sin(angle + sight_angle[i]  + PI / 2)}, sfWhite, {0, 0}},
+                    {{center.x + 100 * cos(angle + sight_angles[i] + PI / 2), center.y + 100 * sin(angle + sight_angles[i]  + PI / 2)}, sfWhite, {0, 0}},
                 };
                 sfRenderWindow_drawPrimitives(window, tmp_sl, 2, sfLines, NULL);
             }
