@@ -42,7 +42,7 @@ int main(int argc, char* argv[])
     car_brain.acti_type = base_type;
     car_brain.funcs.af = my_nn_sigmoid;
     car_brain.funcs.grad_af = my_nn_sigmoid_grad;
-    uint32_t dims[] = {sight_l_n * 2, 32, 16, 8, 4};
+    uint32_t dims[] = {sight_l_n * 2 + 2, 32, 16, 8, 4};
     car_brain.dims = dims;
     car_brain.size = sizeof(dims) / sizeof(dims[0]);
     my_nn_create(&car_brain);
@@ -247,7 +247,6 @@ int main(int argc, char* argv[])
             MAT_DECLA(pred);
             my_nn_predict(&car_brain, &inputs, &pred);
             uint32_t id = my_matrix_find_row_index(&pred, 0, my_matrix_max(&pred));
-            printf("%u\n", id);
             if (id == 0 && car_angular_velocity > - max_angular_speed)
                 car_angular_acceleration = -1;
             if (id == 1 && car_angular_velocity < max_angular_speed)
