@@ -33,7 +33,7 @@ int main(int argc, char* argv[])
     //     {100 * cos(), 100},
     //     {}
     // };
-    double sight_angles[] = {0, PI / 2, - PI / 2, PI / 3, - PI / 3, PI / 4, - PI / 4, PI / 5, - PI / 5};
+    double sight_angles[] = {0, PI / 8, - PI / 8, PI / 8 * 2, - PI / 8 * 2, , PI / 8 * 3, - PI / 8 * 3, PI / 8 * 4, - PI / 8 * 4, PI / 8 * 5, - PI / 8 * 5, PI / 8 * 6, - PI / 8 * 6, PI / 8 * 7, - PI / 8 * 7};
     uint32_t sight_l_n = sizeof(sight_angles) / sizeof(double);
     double sight_powah = 100.;
     // main
