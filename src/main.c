@@ -249,6 +249,10 @@ int main(int argc, char* argv[])
             MAT_DECLA(pred);
             my_nn_predict(&car_brain, &inputs, &pred);
             uint32_t id = my_matrix_find_row_index(&pred, 0, my_matrix_max(&pred));
+            if (is_crash) {
+                car_velocity = 0;
+                car_angular_velocity = 0;
+            }
             if (id == 0 && car_angular_velocity > - max_angular_speed && !is_crash)
                 car_angular_acceleration = -1;
             if (id == 1 && car_angular_velocity < max_angular_speed && !is_crash)
