@@ -29,10 +29,10 @@ int main(int argc, char* argv[])
     sfRectangleShape_setFillColor(car_rect, sfRed);
     sfRectangleShape_setOrigin(car_rect, car_origine);
     sfVertex sides[8];
-    sfVector2f sight_l1[] = {
-        {100 * cos(), 100},
-        {}
-    };
+    // sfVector2f sight_l1[] = {
+    //     {100 * cos(), 100},
+    //     {}
+    // };
     double test = 0;
     // main
     sfVideoMode mode = {3000, 2000, 32};
