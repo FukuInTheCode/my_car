@@ -10,6 +10,7 @@ static bool is_intersecting(sfVertex *line1, sfVertex *line2, sfVector2f *res)
     if (s >= 0 && s <= 1 && t >= 0 && t <= 1) {
         (*res).x = line1[0].position.x + (t * s1.x);
         (*res).y = line1[0].position.y + (t * s1.y);
+        printf("true\n");
         return true;
     }
     return false;
@@ -127,8 +128,6 @@ int main(int argc, char* argv[])
             for (uint32_t i = 0; i < 8; i += 2) {
                 sfVertex side[] = {sides[i], sides[i + 1]};
                 bool is_intersec = false;
-                side[0].color = sfWhite;
-                side[1].color = sfWhite;
                 sfVector2f intersection_pt;
                 for (uint32_t j = 0; j < sfVertexArray_getVertexCount(road_l); j += 2) {
                     sfVertex line[] = {
@@ -138,8 +137,6 @@ int main(int argc, char* argv[])
                     if (!is_intersecting(side, line, &intersection_pt))
                         continue;
                     is_intersec = true;
-                    side[0].color = sfGreen;
-                    side[1].color = sfGreen;
                     break;
                 }
                 for (uint32_t j = 0; j < sfVertexArray_getVertexCount(road_r) && !is_intersec; j += 2) {
@@ -149,11 +146,12 @@ int main(int argc, char* argv[])
                     };
                     if (!is_intersecting(side, line, &intersection_pt))
                         continue;
-                    side[0].color = sfGreen;
-                    side[1].color = sfGreen;
                     is_intersec = true;
                 }
-                sfRenderWindow_drawPrimitives(window, side, 2, sfLines, NULL);
+                if (is_intersec)
+                    sfRectangleShape_setFillColor(car_rect, sfGreen);
+                else
+                    sfRectangleShape_setFillColor(car_rect, sfRed);
             }
         }
         sfRenderWindow_display(window);
