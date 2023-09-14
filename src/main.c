@@ -157,7 +157,7 @@ int main(int argc, char* argv[])
                 sfRectangleShape_setFillColor(car_rect, sfRed);
             sfVertex tmp_sl[] = {
                 {center, sfWhite, {0, 0}},
-                {{center.x + sight_l1.x * cos(angle), center.y + sight_l1.y * sin(angle)}, sfWhite, {0, 0}},
+                {{center.x + sight_l1.x * cos(angle) - sight_l1.y * sin(angle), center.y + sight_l1.x * sin(angle) + sight_l1.y * cos(angle)}, sfWhite, {0, 0}},
             };
             sfRenderWindow_drawPrimitives(window, tmp_sl, 2, sfLines, NULL);
             sfRenderWindow_drawRectangleShape(window, car_rect, NULL);
