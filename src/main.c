@@ -69,7 +69,7 @@ int main(int argc, char* argv[])
             sfVertexArray_append(current_border, tmp);
             if (sfVertexArray_getVertexCount(current_border) > 1)
                 sfVertexArray_append(current_border, tmp);
-        } else if (clicked && !sfKeyboard_isKeyPressed(sfKeyA))
+        } else if (clicked && !sfKeyboard_isKeyPressed(sfKeySpace))
             clicked = false;
         if (sfKeyboard_isKeyPressed(sfKeyZ) && !ended) {
             if (sfVertexArray_getVertexCount(current_border) > 1) {
