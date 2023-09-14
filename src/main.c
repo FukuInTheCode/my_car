@@ -44,7 +44,6 @@ int main(int argc, char* argv[])
     car_brain.dims = dims;
     car_brain.size = sizeof(dims) / sizeof(dims[0]);
     my_nn_create(&car_brain);
-    my_nn_print(&car_brain);
     // main
     sfVideoMode mode = {3000, 2000, 32};
     sfRenderWindow *window = sfRenderWindow_create(mode, "my_car", sfDefaultStyle, NULL);
@@ -104,7 +103,7 @@ int main(int argc, char* argv[])
             car_acceleration = 1;
         if (draw_car && sfKeyboard_isKeyPressed(sfKeyS))
             car_acceleration = -1;
-        
+
         if (car_acceleration < 0 && draw_car)
             car_acceleration = my_min_between(car_acceleration + 0.3, 0);
         else if (car_acceleration > 0 && draw_car)
