@@ -19,8 +19,8 @@ int main(int argc, char* argv[])
 {
     // env var
     // car var
-    double max_angular_speed = 10;
-    double max_speed = 20;
+    double max_angular_speed = 6;
+    double max_speed = 15;
     double car_acceleration = 0;
     double car_angular_acceleration = 0;
     double car_velocity = 0;
