@@ -96,7 +96,6 @@ int main(int argc, char* argv[])
         sfRenderWindow_drawVertexArray(window, road_r, NULL);
         sfRenderWindow_drawVertexArray(window, road_l, NULL);
         if (draw_car) {
-            sfRenderWindow_drawRectangleShape(window, car_rect, NULL);
             sfVector2f center = sfRectangleShape_getPosition(car_rect);
             float angle = sfRectangleShape_getRotation(car_rect) * 3.14159265359 / 180.0;
             sfVector2f z1 = {
@@ -153,6 +152,7 @@ int main(int argc, char* argv[])
                 else
                     sfRectangleShape_setFillColor(car_rect, sfRed);
             }
+            sfRenderWindow_drawRectangleShape(window, car_rect, NULL);
         }
         sfRenderWindow_display(window);
     }
