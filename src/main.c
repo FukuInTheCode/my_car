@@ -227,13 +227,15 @@ int main(int argc, char* argv[])
                 }
                 sfRenderWindow_drawPrimitives(window, tmp_sl, 2, sfLines, NULL);
                 if (see_road) {
+                    inter_vec.x -= 10;
+                    inter_vec.y -= 10;
                     sfCircleShape *pt = sfCircleShape_create();
                     sfCircleShape_setFillColor(pt, sfRed);
                     sfCircleShape_setPosition(pt, inter_vec);
                     sfCircleShape_setRadius(pt, 10);
                     sfRenderWindow_drawCircleShape(window, pt, NULL);
                     sfCircleShape_destroy(pt);
-                    my_matrix_set(&inputs, 2 * )
+                    my_matrix_set(&inputs, 2 * i, 0, inter_vec)
                 }
             }
             sfRenderWindow_drawRectangleShape(window, car_rect, NULL);
