@@ -115,7 +115,6 @@ int main(int argc, char* argv[])
 
                 sfRenderWindow_drawPrimitives(window, side, 2, sfLines, NULL);
             }
-            // sfRectangleShape_setOrigin(car_rect, car_origine);
         }
         sfRenderWindow_display(window);
     }
