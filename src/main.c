@@ -29,10 +29,6 @@ int main(int argc, char* argv[])
     sfRectangleShape_setFillColor(car_rect, sfRed);
     sfRectangleShape_setOrigin(car_rect, car_origine);
     sfVertex sides[8];
-    // sfVector2f sight_l1[] = {
-    //     {100 * cos(), 100},
-    //     {}
-    // };
     double sight_angles[] = {0, PI / 8, - PI / 8, PI / 8 * 2, - PI / 8 * 2,\
             PI / 8 * 3, - PI / 8 * 3, PI / 8 * 4, - PI / 8 * 4, PI / 8 * 5,\
             - PI / 8 * 5, PI / 8 * 6, - PI / 8 * 6, PI / 8 * 7, - PI / 8 * 7};
