@@ -243,7 +243,14 @@ int main(int argc, char* argv[])
             MAT_DECLA(pred);
             my_nn_predict(&car_brain, &inputs, &pred);
             uint32_t id = my_matrix_find_row_index(&inputs, 0, my_matrix_max(&inputs));
-            // printf("%u\n", id);
+            if (id == 0)
+                car_angular_acceleration = -1;
+            if (id == 1)
+                car_angular_acceleration = 1;
+            if (id == 2)
+                car_acceleration = 1;
+            if (id == 3)
+                car_acceleration = -1;
             sfRenderWindow_drawRectangleShape(window, car_rect, NULL);
         }
         sfRenderWindow_display(window);
