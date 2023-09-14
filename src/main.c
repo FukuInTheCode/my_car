@@ -196,7 +196,9 @@ int main(int argc, char* argv[])
                 sfRectangleShape_setFillColor(car_rect, sfRed);
 
             MAT_DECLA(inputs);
-            my_matrix_create(sight_l_n * 2, 1, 1, &inputs);
+            my_matrix_create(sight_l_n * 2 + 2, 1, 1, &inputs);
+            my_matrix_set(&inputs, 0, 0, car_velocity);
+            my_matrix_set(&inputs, 1, 0, car_angular_velocity);
             for (uint32_t i = 0; i < sight_l_n; ++i) {
                 sfVector2f inter_vec;
                 bool see_road = false;
@@ -238,8 +240,8 @@ int main(int argc, char* argv[])
                     sfCircleShape_setRadius(pt, 10);
                     sfRenderWindow_drawCircleShape(window, pt, NULL);
                     sfCircleShape_destroy(pt);
-                    my_matrix_set(&inputs, 2 * i, 0, inter_vec.x);
-                    my_matrix_set(&inputs, 2 * i + 1, 0, inter_vec.y);
+                    my_matrix_set(&inputs, 2 * i + 2, 0, inter_vec.x);
+                    my_matrix_set(&inputs, 2 * i + 3, 0, inter_vec.y);
                 }
             }
             MAT_DECLA(pred);
