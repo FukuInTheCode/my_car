@@ -239,6 +239,9 @@ int main(int argc, char* argv[])
                     my_matrix_set(&inputs, 2 * i + 1, 0, inter_vec.y);
                 }
             }
+            MAT_DECLA(pred);
+            my_nn_predict(&car_brain, &inputs, &pred);
+            MAT_PRINT(pred);
             sfRenderWindow_drawRectangleShape(window, car_rect, NULL);
         }
         sfRenderWindow_display(window);
