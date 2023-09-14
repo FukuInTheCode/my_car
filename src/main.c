@@ -34,7 +34,7 @@ int main(int argc, char* argv[])
     //     {}
     // };
     uint32_t sight_l_n = 3;
-    double sight_angle[sight_l_n] = {0, PI / 2, - PI / 2};
+    double sight_angle[] = {0, PI / 2, - PI / 2};
     // main
     sfVideoMode mode = {3000, 2000, 32};
     sfRenderWindow *window = sfRenderWindow_create(mode, "my_car", sfDefaultStyle, NULL);
