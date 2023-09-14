@@ -20,6 +20,7 @@ int main(int argc, char* argv[])
 {
     // car var
     double car_velocity = 10.;
+    double car_angular_velocity = 3.;
     sfVector2f car_pos;
     sfVector2f car_size = {10, 30};
     sfVector2f car_origine = {car_size.x / 2., car_size.y / 2.};
