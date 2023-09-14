@@ -193,7 +193,7 @@ int main(int argc, char* argv[])
                 sfRectangleShape_setFillColor(car_rect, sfRed);
 
             MAT_DECLA(inputs);
-            my_matrix_create(sight_l_n, 1, 1, &inputs);
+            my_matrix_create(sight_l_n * 2, 1, 1, &inputs);
             for (uint32_t i = 0; i < sight_l_n; ++i) {
                 sfVector2f inter_vec;
                 bool see_road = false;
