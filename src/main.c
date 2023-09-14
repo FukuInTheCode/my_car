@@ -105,7 +105,15 @@ int main(int argc, char* argv[])
             car_velocity = my_min_between(car_velocity + 0.3, 0);
         else if (car_velocity > 0 && draw_car)
             car_velocity = my_max_between(car_velocity - 0.3, 0);
-        // car_angular_velocity += car_angular_acceleration;
+        if (car_angular_acceleration < 0 && draw_car)
+            car_angular_acceleration = my_min_between(car_angular_acceleration + 0.3, 0);
+        else if (car_angular_acceleration > 0 && draw_car)
+            car_angular_acceleration = my_max_between(car_angular_acceleration - 0.3, 0);
+        car_angular_velocity += car_angular_acceleration;
+        if (car_angular_velocity < 0 && draw_car)
+            car_angular_velocity = my_min_between(car_angular_velocity + 0.3, 0);
+        else if (car_angular_velocity > 0 && draw_car)
+            car_angular_velocity = my_max_between(car_angular_velocity - 0.3, 0);
         // draw
         sfRenderWindow_clear(window, sfColor_fromRGBA(44, 44, 44, 128));
         sfRenderWindow_drawVertexArray(window, road_r, NULL);
