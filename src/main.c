@@ -250,9 +250,9 @@ int main(int argc, char* argv[])
                 car_angular_acceleration = -1;
             if (id == 1 && car_angular_velocity < max_angular_speed)
                 car_angular_acceleration = 1;
-            if (id == 2 && car_velocity < max_angular_speed)
+            if (id == 2 && car_velocity < max_speed)
                 car_acceleration = 1;
-            if (id == 3 && car_angular_velocity > - max_angular_speed)
+            if (id == 3 && car_velocity > - max_speed)
                 car_acceleration = -1;
             sfRenderWindow_drawRectangleShape(window, car_rect, NULL);
         }
