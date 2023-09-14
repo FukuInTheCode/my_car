@@ -58,7 +58,7 @@ int main(int argc, char* argv[])
                 sfRenderWindow_close(window);
         }
         // road drawing
-        if (sfKeyboard_isKeyPressed(sfKeyA) && !clicked && !ended) {
+        if (sfKeyboard_isKeyPressed(sfKeySpace) && !clicked && !ended) {
             clicked = true;
             sfVector2i mouse_vec = sfMouse_getPosition(NULL);
             sfVertex tmp = {
