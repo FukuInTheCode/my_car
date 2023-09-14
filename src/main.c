@@ -183,10 +183,28 @@ int main(int argc, char* argv[])
             else
                 sfRectangleShape_setFillColor(car_rect, sfRed);
             for (uint32_t i = 0; i < sight_l_n; ++i) {
+                sfVector2f inter_vec;
+                bool see_road = false;
                 sfVertex tmp_sl[] = {
                     {center, sfWhite, {0, 0}},
                     {{center.x + sight_powah * cos(angle + sight_angles[i] + PI / 2), center.y + sight_powah * sin(angle + sight_angles[i]  + PI / 2)}, sfWhite, {0, 0}},
                 };
+                for (uint32_t j = 0; j < sfVertexArray_getVertexCount(road_l); ++j) {
+                    if (!is_intersecting(tmp_sl, sfVertexArray_getVertex(road_l, j), &inter_vec))
+                        continue;
+                    see_road = true;
+                    tmp_sl[0].color = sfGreen;
+                    tmp_sl[1].color = sfGreen;
+                    break;
+                }
+                for (uint32_t j = 0; j < sfVertexArray_getVertexCount(road_r) && !see_road; ++j) {
+                    if (!is_intersecting(tmp_sl, sfVertexArray_getVertex(road_r, j), &inter_vec))
+                        continue;
+                    see_road = true;
+                    tmp_sl[0].color = sfGreen;
+                    tmp_sl[1].color = sfGreen;
+                    break;
+                }
                 sfRenderWindow_drawPrimitives(window, tmp_sl, 2, sfLines, NULL);
             }
             sfRenderWindow_drawRectangleShape(window, car_rect, NULL);
