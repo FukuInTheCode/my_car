@@ -40,8 +40,8 @@ int main(int argc, char* argv[])
     double sight_powah = 100.;
     NN_DECLA(car_brain);
     car_brain.acti_type = base_type;
-    car_brain.funcs.af = my_nn_sigmoid;
-    car_brain.funcs.grad_af = my_nn_sigmoid_grad;
+    car_brain.funcs.af = my_nn_sin;
+    car_brain.funcs.grad_af = my_nn_sin_grad;
     uint32_t dims[] = {sight_l_n + 2, 16, 8, 4};
     car_brain.dims = dims;
     car_brain.size = sizeof(dims) / sizeof(dims[0]);
