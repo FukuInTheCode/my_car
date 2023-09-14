@@ -48,6 +48,7 @@ int main(int argc, char* argv[])
     sfVideoMode mode = {3000, 2000, 32};
     sfRenderWindow *window = sfRenderWindow_create(mode, "my_car", sfDefaultStyle, NULL);
     sfEvent event;
+    sfRenderWindow_setFramerateLimit(window, 60);
     // road var
     sfVertexArray *road_r = sfVertexArray_create();
     sfVertexArray *road_l = sfVertexArray_create();
