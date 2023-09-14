@@ -88,9 +88,9 @@ int main(int argc, char* argv[])
             draw_car = true;
             sfRectangleShape_setPosition(car_rect, car_pos);
         }
-        if (draw_car && sfKeyboard_isKeyPressed(sfKeyLeft))
+        if (draw_car && sfKeyboard_isKeyPressed(sfKeyA))
             car_angular_acceleration = -1. / 2.;
-        if (draw_car && sfKeyboard_isKeyPressed(sfKeyRight))
+        if (draw_car && sfKeyboard_isKeyPressed(sfKeyD))
             car_angular_acceleration = 1. / 2.;
         if (draw_car && sfKeyboard_isKeyPressed(sfKeyW))
             car_acceleration = 1;
