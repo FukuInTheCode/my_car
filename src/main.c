@@ -1,10 +1,11 @@
 #include "../includes/my.h"
 
 
-static bool is_intersecting(sfVertex **line1, sfVertex **line2, sfVector2f *res)
+static bool is_intersecting(sfVertex *line1, sfVertex *line2, sfVector2f *res)
 {
-    sfVector2f s1 = {(*line1)[1].position.x - (*line1)[0].positon.x, (*line1)[1].position.y - (*line1)[0].positon.y};
-    sfVector2f s2 = {(*line2)[1].position.x - (*line2)[0].positon.x, (*line2)[1].position.y - (*line2)[0].positon.y};
+    sfVector2f s1 = {line1[1].position.x - line1[0].positon.x, line1[1].position.y - line1[0].positon.y};
+    sfVector2f s2 = {line2[1].position.x - line2[0].positon.x, line2[1].position.y - line2[0].positon.y};
+    double s = (-s1.y * ())
 }
 
 int main(int argc, char* argv[])
