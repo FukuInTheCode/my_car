@@ -42,7 +42,7 @@ int main(int argc, char* argv[])
     car_brain.acti_type = base_type;
     car_brain.funcs.af = my_nn_sigmoid;
     car_brain.funcs.grad_af = my_nn_sigmoid_grad;
-    uint32_t dims[] = {sight_l_n * 2 + 2, 32, 16, 8, 4};
+    uint32_t dims[] = {sight_l_n * 2 + 2, 16, 8, 4};
     car_brain.dims = dims;
     car_brain.size = sizeof(dims) / sizeof(dims[0]);
     my_nn_create(&car_brain);
