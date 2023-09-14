@@ -206,6 +206,14 @@ int main(int argc, char* argv[])
                     break;
                 }
                 sfRenderWindow_drawPrimitives(window, tmp_sl, 2, sfLines, NULL);
+                if (see_road) {
+                    sfCircleShape *pt = sfCircleShape_create();
+                    sfCircleShape_setFillColor(pt, sfRed);
+                    sfCircleShape_setPosition(pt, inter_vec);
+                    sfCircleShape_setRadius(pt, 10);
+                    sfRenderWindow_drawCircleShape(window, pt, NULL);
+                    sfCircleShape_destroy(pt);
+                }
             }
             sfRenderWindow_drawRectangleShape(window, car_rect, NULL);
         }
