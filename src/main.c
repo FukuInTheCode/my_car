@@ -82,8 +82,6 @@ int main(int argc, char* argv[])
         sfRenderWindow_drawVertexArray(window, road_l, NULL);
         if (draw_car) {
             sfRenderWindow_drawRectangleShape(window, car_rect, NULL);
-            // sfVector2f tmp = {-1 * car_origine.x, -1 * car_origine.y};
-            // sfRectangleShape_setOrigin(car_rect, tmp);
             sfVector2f center = sfRectangleShape_getPosition(car_rect);
             float angle = sfRectangleShape_getRotation(car_rect) * 3.14159265359 / 180.0;
             sfVector2f z1 = {
@@ -112,10 +110,9 @@ int main(int argc, char* argv[])
             sides[6].position = z4;
             sides[7].position = z1;
 
-            for (int i = 0; i < 8; i++)
-                sides[i].color = sfWhite;
             for (uint32_t i = 0; i < 8; i += 2) {
                 sfVertex side[] = {sides[i], sides[i + 1]};
+
                 sfRenderWindow_drawPrimitives(window, side, 2, sfLines, NULL);
             }
             // sfRectangleShape_setOrigin(car_rect, car_origine);
