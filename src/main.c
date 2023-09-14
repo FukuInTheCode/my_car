@@ -87,8 +87,8 @@ int main(int argc, char* argv[])
         if (draw_car && sfKeyboard_isKeyPressed(sfKeyW)) {
             double theta = sfRectangleShape_getRotation(car_rect) * PI / 180.;
             sfVector2f dir_vec = {
-                cos(theta + PI / 2.),
-                sin(theta + PI / 2.)
+                cos(theta + PI / 2.) * car_velocity,
+                sin(theta + PI / 2.) * car_velocity
             };
             sfRectangleShape_move(car_rect, dir_vec);
 
