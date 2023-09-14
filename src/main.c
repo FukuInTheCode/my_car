@@ -89,9 +89,9 @@ int main(int argc, char* argv[])
             sfRectangleShape_setPosition(car_rect, car_pos);
         }
         if (draw_car && sfKeyboard_isKeyPressed(sfKeyA))
-            car_angular_acceleration = -2 / 3.;
+            car_angular_acceleration = -1;
         if (draw_car && sfKeyboard_isKeyPressed(sfKeyD))
-            car_angular_acceleration = 2 / 3.;
+            car_angular_acceleration = 1;
         if (draw_car && sfKeyboard_isKeyPressed(sfKeyW))
             car_acceleration = 1;
         if (draw_car && sfKeyboard_isKeyPressed(sfKeyS))
@@ -112,9 +112,9 @@ int main(int argc, char* argv[])
             car_angular_acceleration = my_max_between(car_angular_acceleration - 0.3, 0);
         car_angular_velocity += car_angular_acceleration;
         if (car_angular_velocity < 0 && draw_car)
-            car_angular_velocity = my_min_between(car_angular_velocity + 0.3, 0);
+            car_angular_velocity = my_min_between(car_angular_velocity + 0.4, 0);
         else if (car_angular_velocity > 0 && draw_car)
-            car_angular_velocity = my_max_between(car_angular_velocity - 0.3, 0);
+            car_angular_velocity = my_max_between(car_angular_velocity - 0.4, 0);
         // draw
         sfRenderWindow_clear(window, sfColor_fromRGBA(44, 44, 44, 128));
         sfRenderWindow_drawVertexArray(window, road_r, NULL);
