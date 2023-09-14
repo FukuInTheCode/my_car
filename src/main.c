@@ -99,6 +99,8 @@ int main(int argc, char* argv[])
             draw_car = true;
             sfRectangleShape_setPosition(car_rect, car_pos);
         }
+        if (sfKeyboard_isKeyPressed(sfKeyR))
+            is_crash = false;
 
         if (draw_car && sfKeyboard_isKeyPressed(sfKeyA) && car_angular_velocity > - max_angular_speed)
             car_angular_acceleration = -1;
