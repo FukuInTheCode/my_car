@@ -10,7 +10,6 @@ static bool is_intersecting(sfVertex *line1, sfVertex *line2, sfVector2f *res)
     if (s >= 0 && s <= 1 && t >= 0 && t <= 1) {
         (*res).x = line1[0].position.x + (t * s1.x);
         (*res).y = line1[0].position.y + (t * s1.y);
-        printf("true\n");
         return true;
     }
     return false;
@@ -18,6 +17,7 @@ static bool is_intersecting(sfVertex *line1, sfVertex *line2, sfVector2f *res)
 
 int main(int argc, char* argv[])
 {
+    // env var
     // car var
     double car_velocity = 10.;
     double car_angular_velocity = 3.;
