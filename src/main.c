@@ -153,11 +153,11 @@ int main(int argc, char* argv[])
                 sfRectangleShape_setFillColor(car_rect, sfGreen);
             else
                 sfRectangleShape_setFillColor(car_rect, sfRed);
-            sfRenderWindow_drawPrimitives(window, sight_l1, 2, sfLines, NULL);
             sfVertex tmp_sl[] = {
                 {center, sfWhite, {0, 0}},
                 {{center.x + sight_l1.x, center.y + sight_l1.y}, sfWhite, {0, 0}},
             };
+            sfRenderWindow_drawPrimitives(window, tmp_sl, 2, sfLines, NULL);
             sfRenderWindow_drawRectangleShape(window, car_rect, NULL);
         }
         sfRenderWindow_display(window);
