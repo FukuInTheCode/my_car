@@ -156,6 +156,7 @@ int main(int argc, char* argv[])
                 sfRectangleShape_setFillColor(car_rect, sfGreen);
             else
                 sfRectangleShape_setFillColor(car_rect, sfRed);
+            sfRenderWindow_drawPrimitives(window, sight_l1, 2, sfLines, NULL);
             sfRenderWindow_drawRectangleShape(window, car_rect, NULL);
         }
         sfRenderWindow_display(window);
