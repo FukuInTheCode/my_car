@@ -42,7 +42,7 @@ int main(int argc, char* argv[])
     car_brain.acti_type = base_type;
     car_brain.funcs.af = my_nn_sigmoid;
     car_brain.funcs.grad_af = my_nn_sigmoid_grad;
-    uint32_t dims[] = {sight_l_n * 2 + 2, 16, 8, 4};
+    uint32_t dims[] = {sight_l_n + 2, 16, 8, 4};
     car_brain.dims = dims;
     car_brain.size = sizeof(dims) / sizeof(dims[0]);
     my_nn_create(&car_brain);
@@ -200,7 +200,7 @@ int main(int argc, char* argv[])
                 sfRectangleShape_setFillColor(car_rect, sfRed);
 
             MAT_DECLA(inputs);
-            my_matrix_create(sight_l_n * 2 + 2, 1, 1, &inputs);
+            my_matrix_create(sight_l_n + 2, 1, 1, &inputs);
             my_matrix_set(&inputs, 0, 0, car_velocity);
             my_matrix_set(&inputs, 1, 0, car_angular_velocity);
             for (uint32_t i = 0; i < sight_l_n; ++i) {
@@ -244,8 +244,8 @@ int main(int argc, char* argv[])
                     sfCircleShape_setRadius(pt, 10);
                     sfRenderWindow_drawCircleShape(window, pt, NULL);
                     sfCircleShape_destroy(pt);
-                    my_matrix_set(&inputs, 2 * i + 2, 0, inter_vec.x);
-                    my_matrix_set(&inputs, 2 * i + 3, 0, inter_vec.y);
+                    double dist = sqrt(pow(inter_vec.x - center.x, 2) + pow(inter_vec.y - center.y, 2));
+                    my_matrix_set(&inputs, i + 2, 0, dist);
                 }
             }
             MAT_DECLA(pred);
@@ -254,7 +254,8 @@ int main(int argc, char* argv[])
             if (is_crash) {
                 car_velocity = 0;
                 car_angular_velocity = 0;
-            }
+            } else
+                my_matrix_print(2, &inputs, &pred);
             if (id == 0 && car_angular_velocity > - max_angular_speed && !is_crash)
                 car_angular_acceleration = -1;
             if (id == 1 && car_angular_velocity < max_angular_speed && !is_crash)
