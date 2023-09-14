@@ -18,9 +18,12 @@ static bool is_intersecting(sfVertex *line1, sfVertex *line2, sfVector2f *res)
 int main(int argc, char* argv[])
 {
     // env var
+    // double friction = 
     // car var
-    double car_velocity = 10.;
-    double car_angular_velocity = 3.;
+    double car_acceleration = 0;
+    double car_angular_acceleration = 0;
+    double car_velocity = 0;
+    double car_angular_velocity = 0;
     sfVector2f car_pos;
     sfVector2f car_size = {10, 30};
     sfVector2f car_origine = {car_size.x / 2., car_size.y / 2.};
@@ -86,25 +89,28 @@ int main(int argc, char* argv[])
             sfRectangleShape_setPosition(car_rect, car_pos);
         }
         if (draw_car && sfKeyboard_isKeyPressed(sfKeyLeft))
-            sfRectangleShape_rotate(car_rect, -1 * car_angular_velocity);
+            car_angular_acceleration += -1;
         if (draw_car && sfKeyboard_isKeyPressed(sfKeyRight))
-            sfRectangleShape_rotate(car_rect, car_angular_velocity);
-        if (draw_car && sfKeyboard_isKeyPressed(sfKeyW)) {
-            double theta = sfRectangleShape_getRotation(car_rect) * PI / 180.;
-            sfVector2f dir_vec = {
-                cos(theta + PI / 2.) * car_velocity,
-                sin(theta + PI / 2.) * car_velocity
-            };
-            sfRectangleShape_move(car_rect, dir_vec);
-
-        }
+            car_angular_acceleration += 1;
+        if (draw_car && sfKeyboard_isKeyPressed(sfKeyW))
+            car_acceleration += 1;
+        if (draw_car && sfKeyboard_isKeyPressed(sfKeyS))
+            car_acceleration += -1;
+        car_velocity += car_acceleration;
+        car_angular_velocity += car_angular_acceleration;
         // draw
         sfRenderWindow_clear(window, sfColor_fromRGBA(44, 44, 44, 128));
         sfRenderWindow_drawVertexArray(window, road_r, NULL);
         sfRenderWindow_drawVertexArray(window, road_l, NULL);
         if (draw_car) {
-            sfVector2f center = sfRectangleShape_getPosition(car_rect);
+            sfRectangleShape_rotate(car_rect, car_angular_velocity);
             float angle = sfRectangleShape_getRotation(car_rect) * 3.14159265359 / 180.0;
+            sfVector2f dir_vec = {
+                cos(angle + PI / 2.) * car_velocity,
+                sin(angle + PI / 2.) * car_velocity
+            };
+            sfRectangleShape_move(car_rect, dir_vec);
+            sfVector2f center = sfRectangleShape_getPosition(car_rect);
             sfVector2f z1 = {
                 center.x - car_origine.x * cos(angle) - car_origine.y * sin(angle),
                 center.y - car_origine.x * sin(angle) + car_origine.y * cos(angle)
