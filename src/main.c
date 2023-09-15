@@ -60,6 +60,7 @@ int main(int argc, char* argv[])
     sfVector2i window_pos = sfRenderWindow_getPosition(window);
     // bool & loop
     bool ended = false;
+    bool ended2 = false;
     bool clicked = false;
     bool draw_car = false;
     bool is_crash = false;
@@ -92,7 +93,8 @@ int main(int argc, char* argv[])
                     current_border = road_l;
             }
         }
-        if (ended && sfKeyboard_isKeyPressed(sfKeySpace) && !draw_car) {
+
+        if (ended2 && sfKeyboard_isKeyPressed(sfKeySpace) && !draw_car) {
             sfVector2i mouse_vec = sfMouse_getPosition(NULL);
             car_pos.x = mouse_vec.x - window_pos.x;
             car_pos.y = mouse_vec.y - window_pos.y;
