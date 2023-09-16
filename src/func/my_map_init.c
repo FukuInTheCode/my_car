@@ -2,6 +2,6 @@
 
 void my_map_init(my_map_t *map)
 {
-    map->walls = malloc(sizeof(sfVertexArray));
+    map->walls = calloc(1, sizeof(sfVertexArray));
     map->walls_n = 1;
 }
