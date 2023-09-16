@@ -29,7 +29,7 @@ static void handle_show(my_map_t *map, sfRenderWindow *window)
     sfRenderWindow_clear(window, sfBlack);
     for (uint32_t i = 0; i < map->walls_n; ++i)
         sfRenderWindow_drawVertexArray(window, map->walls[i], NULL);
-    sfRenderWindow_display(window)
+    sfRenderWindow_display(window);
 }
 
 void my_map_create(my_map_t *map, sfVideoMode mode)
