@@ -21,5 +21,6 @@ typedef struct {
     m_status_t status;
 } my_map_t;
 
+void my_map_init(my_map_t *map);
 
 #endif
