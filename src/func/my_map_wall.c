@@ -1,3 +1,4 @@
+#define MATRIX_CHECK_ALLOC
 #include "../../includes/my.h"
 
 void my_map_add_wall(my_map_t *map)
