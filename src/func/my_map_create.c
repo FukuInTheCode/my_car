@@ -11,7 +11,7 @@ static void handle_event(sfRenderWindow *window)
 
 static void handle_keyboard(my_map_t *map, sfRenderWindow *window)
 {
-    if (sfKeyboard_isKeyPressed(sfKeyW))
+    if (sfKeyboard_isKeyPressed(sfKeyW) && map->status != wall_mode)
         map->status = wall_mode;
     if (sfKeyboard_isKeyPressed(sfKeyG))
         map->status = gate_mode;
