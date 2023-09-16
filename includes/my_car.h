@@ -15,7 +15,7 @@ typedef enum {
 
 typedef struct {
     sfVector2f start;
-    sfVertexArray *walls;
+    sfVertexArray **walls;
     sfVertex *gates;
     uint32_t walls_n;
     uint32_t gates_n;
