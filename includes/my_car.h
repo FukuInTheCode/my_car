@@ -5,7 +5,7 @@
 #include "my_matrix.h"
 
 typedef struct {
-    sfVertexArray *wall;
+    sfVertexArray *walls;
     sfVector2f start;
     sfVertex *gates;
     uint32_t walls_n;
