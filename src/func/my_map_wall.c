@@ -1,7 +1,7 @@
 #define MATRIX_CHECK_ALLOC
 #include "../../includes/my.h"
 
-void my_map_add_wall(my_map_t *map)
+void my_map_alloc_wall(my_map_t *map)
 {
     sfVertexArray **tmp_walls = map->walls;
     map->walls = calloc(map->walls_n + 1, sizeof(sfVertexArray *));
@@ -20,7 +20,7 @@ void my_map_draw_wall(my_map_t *map, sfRenderWindow *window)
         sfVertex ith_vertex = *sfVertexArray_getVertex(map->walls[map->walls_n - 1], 0);
         sfVertex pt = {{ith_vertex.position.x, ith_vertex.position.y}, sfWhite, {0, 0}};
         sfVertexArray_append(map->walls[map->walls_n - 1], pt);
-        my_map_add_wall(map);
+        my_map_alloc_wall(map);
     } else if (sfKeyboard_isKeyPressed(sfKeySpace)) {
         sfVector2i window_pos = sfRenderWindow_getPosition(window);
         sfVector2i pos = sfMouse_getPosition(NULL);
