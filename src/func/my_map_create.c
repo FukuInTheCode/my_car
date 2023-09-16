@@ -1,3 +1,4 @@
+#define MATRIX_CHECK_ALLOC
 #include "../../includes/my.h"
 
 static void handle_event(sfRenderWindow *window)
