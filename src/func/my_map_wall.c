@@ -11,7 +11,6 @@ void my_map_add_wall(my_map_t *map)
     map->walls_n += 1;
     map->walls[map->walls_n - 1] = sfVertexArray_create();
     sfVertexArray_setPrimitiveType(map->walls[map->walls_n - 1], sfLines);
-
 }
 
 void my_map_draw_wall(my_map_t *map, sfRenderWindow *window)
@@ -30,7 +29,8 @@ void my_map_draw_wall(my_map_t *map, sfRenderWindow *window)
     }
     if (sfKeyboard_isKeyPressed(sfKeyN)) {
         map->status = no_mode;
-        sfVertex pt = *sfVertexArray_getVertex(map->walls[map->walls_n - 1], 0);
+        sfVertex ith_wertex = *sfVertexArray_getVertex(map->walls[map->walls_n - 1], 0);
+        sfVertex pt = {{ith_vertex.x, ith_vertex.y}, sfWhite, {0, 0}};
         sfVertexArray_append(map->walls[map->walls_n - 1], pt);
         my_map_add_wall(map);
     }
