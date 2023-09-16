@@ -23,5 +23,6 @@ typedef struct {
 
 void my_map_init(my_map_t *map);
 void my_map_add_wall(my_map_t *map);
+void my_map_draw_wall(my_map_t *map, sfRenderWindow *window);
 
 #endif
