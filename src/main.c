@@ -17,6 +17,7 @@ static bool is_intersecting(sfVertex *line1, sfVertex *line2, sfVector2f *res)
 
 int main(int argc, char* argv[])
 {
+#if 0
     // env var
     // car var
     double max_angular_speed = 6;
@@ -270,5 +271,6 @@ int main(int argc, char* argv[])
         sfRenderWindow_display(window);
     }
     sfRenderWindow_destroy(window);
+#endif
     return 0;
 }
