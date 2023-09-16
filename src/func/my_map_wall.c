@@ -7,7 +7,7 @@ void my_map_add_wall(my_map_t *map)
     map->walls = calloc(map->walls_n + 1, sizeof(sfVertexArray));
     check_alloc(map->walls);
     for (uint32_t i = 0; i < map->walls_n; ++i)
-        map->walls[i] = tmp[i];
+        map->walls[i] = tmp_walls[i];
     map->walls_n += 1;
     sfVertexArray_setPrimitiveType(&(map->walls[map->walls_n - 1]), sfLines);
 
