@@ -38,7 +38,7 @@ void my_map_create(my_map_t *map, sfVideoMode mode)
     while (sfRenderWindow_isOpen(window)) {
         handle_event(window);
         if (map->status == wall_mode)
-            my_map_draw_wall(map, window);
+            my_map_add_wall(map, window);
         handle_show(map, window);
         handle_keyboard(map, window);
     }

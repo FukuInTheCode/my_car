@@ -24,7 +24,7 @@ typedef struct {
 
 void my_map_init(my_map_t *map);
 void my_map_alloc_wall(my_map_t *map);
-void my_map_draw_wall(my_map_t *map, sfRenderWindow *window);
+void my_map_add_wall(my_map_t *map, sfRenderWindow *window);
 void my_map_create(my_map_t *map, sfVideoMode mode);
 void my_map_alloc_gate(my_map_t *map);
 
