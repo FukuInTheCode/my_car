@@ -37,10 +37,10 @@ void my_map_create(my_map_t *map, sfVideoMode mode)
     sfRenderWindow *window = sfRenderWindow_create(mode, "create race", sfDefaultStyle, NULL);
     while (sfRenderWindow_isOpen(window)) {
         handle_event(window);
-        handle_keyboard(map, window);
         if (map->status == wall_mode)
             my_map_draw_wall(map, window);
         handle_show(map, window);
+        handle_keyboard(map, window);
     }
     sfRenderWindow_destroy(window);
 }
