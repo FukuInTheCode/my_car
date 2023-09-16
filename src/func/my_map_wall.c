@@ -1,5 +1,15 @@
 #include "../../includes/my.h"
 
+void my_map_add_wall(my_map_t *map)
+{
+    sfVertexArray *tmp_walls = map->walls;
+    map->walls = calloc(map->walls_n + 1, sizeof(sfVertexArray));
+    check_alloc(map->walls);
+    for (uint32_t i = 0; i < map->walls_n; ++i)
+        map->walls[i] = tmp[i];
+    map->walls_n += 1;
+}
+
 void my_map_draw_wall(my_map_t *map, sfRenderWindow *window)
 {
     if (sfKeyboard_isKeyPressed(sfKeyW)) {
