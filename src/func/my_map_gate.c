@@ -13,7 +13,7 @@ void my_map_alloc_gate(my_map_t *map)
     sfVertexArray_setPrimitiveType(map->gates[map->gates_n - 1], sfLines);
 }
 
-void my_map_add_gates(my_map_t *map, sfRenderWindow *window)
+void my_map_add_gate(my_map_t *map, sfRenderWindow *window)
 {
     if (sfKeyboard_isKeyPressed(sfKeyE)) {
         map->status = no_mode;
