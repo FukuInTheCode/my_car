@@ -40,6 +40,7 @@ void my_map_create(my_map_t *map, sfVideoMode mode)
         handle_keyboard(map, window);
         if (map->status == wall_mode)
             my_map_draw_wall(map, window);
+        handle_show(map, window);
     }
     sfRenderWindow_destroy(window);
 }
