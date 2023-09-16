@@ -7,7 +7,11 @@
         "adojet.h": "c",
         "stdarg.h": "c",
         "type_traits": "c",
-        "cmath": "c"
+        "cmath": "c",
+        "stdbool.h": "c",
+        "graphics.h": "c",
+        "my_car.h": "c",
+        "my_matrix.h": "c"
     },
     "epilinter.tokenizer_address": "ws://54.36.183.139:8081"
 }
