@@ -2,8 +2,12 @@
 
 void my_map_draw_wall(my_map_t *map, sfRenderWindow *window)
 {
-    if (sfKeyboard_isKeyPressed(sfKeyW))
-        return; // TODO
+    if (sfKeyboard_isKeyPressed(sfKeyW)) {
+        map->status = no_mode;
+        uint32_t n = sfVertexArray_getVertexCount(map->walls[map->walls_n - 1]);
+        sfVertex pt = sfVertexArray_getVertex(map->walls[map->walls_n - 1], n - 1);
+        sfVertexArray_append(map->walls[map->walls_n], pt);
+    }
 
     if (sfKeyboard_isKeyPressed(sfKeySpace)) {
         sfVector2i window_pos = sfRenderWindow_getPosition(window);
