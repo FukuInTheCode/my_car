@@ -39,6 +39,8 @@ void my_map_create(my_map_t *map, sfVideoMode mode)
         handle_event(window);
         if (map->status == wall_mode)
             my_map_add_wall(map, window);
+        if (map->status == gate_mode)
+            my_map_add_gate(map, window);
         handle_show(map, window);
         handle_keyboard(map, window);
     }
