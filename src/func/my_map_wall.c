@@ -25,7 +25,7 @@ void my_map_draw_wall(my_map_t *map, sfRenderWindow *window)
         pos.y -= window_pos.y;
         sfVertex pt = {{pos.x, pos.y}, sfWhite, {0, 0}};
         sfVertexArray_append(map->walls[map->walls_n - 1], pt);
-        if (sfVertexArray_getVertexCount(map->walls[map->walls_n]) > 1)
+        if (sfVertexArray_getVertexCount(map->walls[map->walls_n - 1]) > 1)
             sfVertexArray_append(map->walls[map->walls_n - 1], pt);
     }
     if (sfKeyboard_isKeyPressed(sfKeyN)) {
