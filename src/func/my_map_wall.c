@@ -15,7 +15,7 @@ void my_map_add_wall(my_map_t *map)
 
 void my_map_draw_wall(my_map_t *map, sfRenderWindow *window)
 {
-    if (sfKeyboard_isKeyPressed(sfKeyN)) {
+    if (sfKeyboard_isKeyPressed(sfKeyE)) {
         map->status = no_mode;
         sfVertex ith_vertex = *sfVertexArray_getVertex(map->walls[map->walls_n - 1], 0);
         sfVertex pt = {{ith_vertex.position.x, ith_vertex.position.y}, sfWhite, {0, 0}};
