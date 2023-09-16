@@ -18,6 +18,7 @@ typedef struct {
     sfVertex *gates;
     uint32_t walls_n;
     uint32_t gates_n;
+    m_status_t status;
 } my_map_t;
 
 
