@@ -8,6 +8,8 @@ void my_map_add_wall(my_map_t *map)
     for (uint32_t i = 0; i < map->walls_n; ++i)
         map->walls[i] = tmp[i];
     map->walls_n += 1;
+    sfVertexArray_setPrimitiveType(&(map->walls[map->walls_n - 1]), sfLines);
+
 }
 
 void my_map_draw_wall(my_map_t *map, sfRenderWindow *window)
