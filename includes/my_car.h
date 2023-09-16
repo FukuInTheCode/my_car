@@ -3,6 +3,7 @@
 
 #include "my_neuralnetwork.h"
 #include "my_matrix.h"
+#include "SFML/Graphics.h"
 
 typedef enum {
     no_mode,
