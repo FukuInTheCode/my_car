@@ -11,3 +11,20 @@ void my_map_alloc_gate(my_map_t *map)
     map->gates[map->gates_n - 1] = sfVertexArray_create();
     sfVertexArray_setPrimitiveType(map->gates[map->gates_n - 1], sfLines);
 }
+
+void my_map_add_gates(my_map_t *map, sfRenderWindow *window)
+{
+    if (sfKeyboard_isKeyPressed(sfKeyE)) {
+        map->status = no_mode;
+        my_map_alloc_wall(map);
+    } else if (sfKeyboard_isKeyPressed(sfKeySpace)) {
+        sfVector2i window_pos = sfRenderWindow_getPosition(window);
+        sfVector2i pos = sfMouse_getPosition(NULL);
+        pos.x -= window_pos.x;
+        pos.y -= window_pos.y;
+        sfVertex pt = {{pos.x, pos.y}, sfGreen, {0, 0}};
+        sfVertexArray_append(map->gates[map->gates_n - 1], pt);
+        if (sfVertexArray_getVertexCount(map->gates[map->gates_n - 1]) > 1)
+            sfVertexArray_append(map->gates[map->gates_n - 1], pt);
+    }
+}
