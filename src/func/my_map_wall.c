@@ -16,6 +16,7 @@ void my_map_draw_wall(my_map_t *map, sfRenderWindow *window)
         map->status = no_mode;
         sfVertex pt = sfVertexArray_getVertex(map->walls[map->walls_n - 1], 0);
         sfVertexArray_append(map->walls[map->walls_n], pt);
+        my_map_add_wall(map);
     }
 
     if (sfKeyboard_isKeyPressed(sfKeySpace)) {
