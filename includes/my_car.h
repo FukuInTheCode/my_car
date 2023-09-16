@@ -5,7 +5,7 @@
 #include "my_matrix.h"
 
 typedef struct {
-
+    sfVertexArray *wall;
 } my_map_t;
 
 
