@@ -4,6 +4,14 @@
 #include "my_neuralnetwork.h"
 #include "my_matrix.h"
 
+typedef enum {
+    no_mode,
+    wall_mode,
+    gate_mode,
+    start_mode,
+    race_mode
+} m_status_t;
+
 typedef struct {
     sfVertexArray *walls;
     sfVector2f start;
