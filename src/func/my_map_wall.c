@@ -15,7 +15,6 @@ void my_map_add_wall(my_map_t *map)
 
 void my_map_draw_wall(my_map_t *map, sfRenderWindow *window)
 {
-    printf("test\n");
 
     if (sfKeyboard_isKeyPressed(sfKeySpace)) {
         sfVector2i window_pos = sfRenderWindow_getPosition(window);
@@ -26,12 +25,14 @@ void my_map_draw_wall(my_map_t *map, sfRenderWindow *window)
         sfVertexArray_append(map->walls[map->walls_n - 1], pt);
         if (sfVertexArray_getVertexCount(map->walls[map->walls_n - 1]) > 1)
             sfVertexArray_append(map->walls[map->walls_n - 1], pt);
+        printf("%zu\n", sfVertexArray_getVertexCount(map->walls[map->walls_n - 1]));
     }
     if (sfKeyboard_isKeyPressed(sfKeyN)) {
         map->status = no_mode;
         sfVertex ith_vertex = *sfVertexArray_getVertex(map->walls[map->walls_n - 1], 0);
-        sfVertex pt = {{ith_vertex.x, ith_vertex.y}, sfWhite, {0, 0}};
+        sfVertex pt = {{ith_vertex.position.x, ith_vertex.position.y}, sfWhite, {0, 0}};
         sfVertexArray_append(map->walls[map->walls_n - 1], pt);
         my_map_add_wall(map);
+        printf("%zu\n", sfVertexArray_getVertexCount(map->walls[map->walls_n - 1]));
     }
 }
