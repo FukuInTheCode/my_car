@@ -22,5 +22,6 @@ typedef struct {
 } my_map_t;
 
 void my_map_init(my_map_t *map);
+void my_map_add_wall(my_map_t *map);
 
 #endif
