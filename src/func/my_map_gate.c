@@ -17,7 +17,7 @@ void my_map_add_gate(my_map_t *map, sfRenderWindow *window)
 {
     if (sfKeyboard_isKeyPressed(sfKeyE)) {
         map->status = no_mode;
-        my_map_alloc_wall(map);
+        my_map_alloc_gate(map);
     } else if (sfKeyboard_isKeyPressed(sfKeySpace)) {
         sfVector2i window_pos = sfRenderWindow_getPosition(window);
         sfVector2i pos = sfMouse_getPosition(NULL);
