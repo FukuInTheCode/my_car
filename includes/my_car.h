@@ -9,6 +9,7 @@ typedef struct {
     sfVector2f start;
     sfVertex *gates;
     uint32_t walls_n;
+    uint32_t gates_n;
 } my_map_t;
 
 
