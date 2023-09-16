@@ -7,6 +7,7 @@
 typedef struct {
     sfVertexArray *wall;
     sfVector2f start;
+    sfVertex *gates;
 } my_map_t;
 
 
