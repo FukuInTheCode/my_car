@@ -17,6 +17,10 @@ static bool is_intersecting(sfVertex *line1, sfVertex *line2, sfVector2f *res)
 
 int main(int argc, char* argv[])
 {
+    my_map_t map;
+    my_map_init(&map);
+    sfVideoMode mode = {2500, 1500, 32};
+    my_map_create(&map, mode);
 #if 0
     // env var
     // car var
