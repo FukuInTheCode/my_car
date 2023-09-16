@@ -18,6 +18,8 @@ static void handle_keyboard(my_map_t *map, sfRenderWindow *window)
         map->status = gate_mode;
     if (sfKeyboard_isKeyPressed(sfKeyS))
         map->status = start_mode;
+    if (sfKeyboard_isKeyPressed(sfKeyR))
+        map->status = race_mode;
     if (sfKeyboard_isKeyPressed(sfKeyN))
         map->status = no_mode;
 }
