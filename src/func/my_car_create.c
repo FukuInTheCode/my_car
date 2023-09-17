@@ -40,6 +40,8 @@ void my_car_create(void *car_ptr, void *map)
     car->sight_l_n = sizeof(sight_angles) / sizeof(double);;
     car->sight_dist = 100.;
     car->brain.name = "brain";
-    car->brain.size = 0;
+    uint32_t dims[] = {car->sight_l_n + 2, 16, 8, 4};
+    car->brain.dims = dims;
+    car->brain.size = sizeof(dims) / sizeof(dims[0]);
     find_current_gate(car, (my_map_t *)map);
 }
