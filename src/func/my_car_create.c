@@ -19,9 +19,8 @@ static void find_current_gate(my_car_t *car, my_map_t *map)
     }
 }
 
-void my_car_create(void *car_ptr, void *map)
+static void setup_garbage(my_car_t *car)
 {
-    my_car_t *car = (my_car_t *)car_ptr;
     car->max_rota_speed = 6;
     car->max_speed = 15;
     car->velocity = 0;
@@ -33,6 +32,11 @@ void my_car_create(void *car_ptr, void *map)
     car->pos.y = 0;
     car->size.y = 30;
     car->size.x = 10;
+}
+
+void my_car_create(void *car_ptr, void *map)
+{
+    my_car_t *car = (my_car_t *)car_ptr;
     double sight_angles[] = {0, PI / 8, - PI / 8, PI / 8 * 2, - PI / 8 * 2,\
             PI / 8 * 3, - PI / 8 * 3, PI / 8 * 4, - PI / 8 * 4, PI / 8 * 5,\
             - PI / 8 * 5, PI / 8 * 6, - PI / 8 * 6, PI / 8 * 7, - PI / 8 * 7};
