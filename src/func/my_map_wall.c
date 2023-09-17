@@ -33,7 +33,7 @@ void my_map_add_wall(my_map_t *map, sfRenderWindow *window)
     }
 }
 
-void my_map_del_wall(my_map_t *map, sfRenderWindow *window)
+void my_map_del_wall(my_map_t *map)
 {
     if (map->walls_n <= 0)
         return;
@@ -43,5 +43,5 @@ void my_map_del_wall(my_map_t *map, sfRenderWindow *window)
         map->walls[i] = tmp[i];
     free(tmp);
     map->walls_n -= 1;
-    my_map_add_wall(map, window);
+    my_map_alloc_wall(map);
 }
