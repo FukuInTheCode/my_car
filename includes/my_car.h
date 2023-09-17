@@ -20,7 +20,6 @@ typedef struct {
     uint32_t walls_n;
     uint32_t gates_n;
     my_status_t status;
-    my_status_t last_action;
 } my_map_t;
 
 void my_map_init(my_map_t *map);
