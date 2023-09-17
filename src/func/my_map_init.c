@@ -2,6 +2,7 @@
 
 void my_map_init(my_map_t *map)
 {
+    map->last_action = no_mode;
     map->status = no_mode;
     map->walls_n = 0;
     map->walls = NULL;
