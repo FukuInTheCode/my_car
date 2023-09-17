@@ -19,7 +19,7 @@ static void find_current_gate(my_car_t *car, my_map_t *map)
     }
 }
 
-void my_car_create(my_car_t *car, my_map_t *map)
+void my_car_create(my_car_t *car, void *map)
 {
     car->max_rota_speed = 0;
     car->max_speed = 0;
@@ -36,5 +36,5 @@ void my_car_create(my_car_t *car, my_map_t *map)
     car->sight_dist = 0;
     car->brain.name = "brain";
     car->brain.size = 0;
-    find_current_gate(car, map);
+    find_current_gate(car, (my_map_t *)map);
 }
