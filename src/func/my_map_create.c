@@ -45,9 +45,8 @@ void my_map_create(my_map_t *map, sfVideoMode mode)
             my_map_add_gate(map, window);
         if (map->status == start_mode)
             my_map_place_start(map, window);
-        if (map->status == no_mode && sfKeyboard_isKeyPressed(sfKeyZ)\
-            && sfKeyboard_isKeyPressed(sfKeyLControl)\
-            && sfKeyboard_isKeyPressed(sfKeyW))
+        if (map->status == no_mode && sfKeyboard_isKeyPressed(sfKeyW)\
+                                && sfKeyboard_isKeyPressed(sfKeyLControl))
             my_map_del_wall(map);
         handle_show(map, window);
         handle_keyboard(map, window);
