@@ -11,7 +11,8 @@ void my_map_alloc_wall(my_map_t *map)
     map->walls_n += 1;
     map->walls[map->walls_n - 1] = sfVertexArray_create();
     sfVertexArray_setPrimitiveType(map->walls[map->walls_n - 1], sfLines);
-    free(tmp_walls);
+    if (tmp->walls != NULL)
+        free(tmp_walls);
 }
 
 void my_map_add_wall(my_map_t *map, sfRenderWindow *window)
