@@ -22,6 +22,17 @@ typedef struct {
     my_status_t status;
 } my_map_t;
 
+typedef struct {
+    double max_rota_speed;
+    double max_speed;
+    double velocity;
+    double angle_velocity;
+    double acceleration;
+    double angle_acceleration;
+    uint32_t current_gate;
+    double reward;
+} my_car_t;
+
 void my_map_init(my_map_t *map);
 void my_map_alloc_wall(my_map_t *map);
 void my_map_add_wall(my_map_t *map, sfRenderWindow *window);
