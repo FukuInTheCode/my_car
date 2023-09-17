@@ -31,6 +31,8 @@ typedef struct {
     double angle_acceleration;
     uint32_t current_gate;
     double reward;
+    sfVector2f pos;
+    sfVector2f size;
 } my_car_t;
 
 void my_map_init(my_map_t *map);
