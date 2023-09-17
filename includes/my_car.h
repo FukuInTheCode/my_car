@@ -35,6 +35,7 @@ bool my_map_is_intersecting_wall(my_map_t *map, sfVertex *line,\
                                                     sfVector2f *res);
 bool my_map_is_intersecting_gate(my_map_t *map, sfVertex *line,\
                                                     sfVector2f *res);
+void my_map_draw(my_map_t *map, sfRenderWindow *window);
 
 #ifdef MAP_INTERSECT
 static bool is_intersecting(sfVertex *line1, sfVertex *line2, sfVector2f *res)
