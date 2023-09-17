@@ -23,7 +23,6 @@ void my_map_add_wall(my_map_t *map, sfRenderWindow *window)
         sfVertex pt = {{ith_vertex.position.x, ith_vertex.position.y}, sfWhite, {0, 0}};
         sfVertexArray_append(map->walls[map->walls_n - 1], pt);
         my_map_alloc_wall(map);
-        map->last_action = wall_mode;
     } else if (sfKeyboard_isKeyPressed(sfKeySpace)) {
         sfVector2i window_pos = sfRenderWindow_getPosition(window);
         sfVector2i pos = sfMouse_getPosition(NULL);
