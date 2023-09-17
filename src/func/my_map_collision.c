@@ -1,3 +1,4 @@
+#define MAP_INTERSECT
 #include "../../includes/my.h"
 
 bool my_map_is_intersecting_wall(my_map_t *map, sfVertex *line,\
