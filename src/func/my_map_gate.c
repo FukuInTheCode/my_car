@@ -29,3 +29,16 @@ void my_map_add_gate(my_map_t *map, sfRenderWindow *window)
             sfVertexArray_append(map->gates[map->gates_n - 1], pt);
     }
 }
+
+void my_map_del_gate(my_map_t *map)
+{
+    if (map->gates_n <= 1)
+        return;
+    sfVertexArray **tmp_gates = map->gates;
+    map->gates = calloc(map->gates_n - 1, sizeof(sfVertexArray *));
+    for (uint32_t i = 0; i < map->gates - 2; ++i)
+        map->gates[i] = tmp_gates[i];
+    map->gates[map->gates - 2] = tmp_gates[map->gates - 1];
+    map->gates -= 1;
+    free(tmp_gates);
+}
