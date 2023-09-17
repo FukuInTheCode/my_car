@@ -35,6 +35,7 @@ typedef struct {
     sfVector2f size;
     double *sight_angles;
     uint32_t sight_l_n;
+    double sight_dist;
 } my_car_t;
 
 void my_map_init(my_map_t *map);
