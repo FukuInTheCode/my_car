@@ -37,6 +37,7 @@ static void setup_garbage(my_car_t *car)
 void my_car_create(void *car_ptr, void *map)
 {
     my_car_t *car = (my_car_t *)car_ptr;
+    setup_garbage(car);
     double sight_angles[] = {0, PI / 8, - PI / 8, PI / 8 * 2, - PI / 8 * 2,\
             PI / 8 * 3, - PI / 8 * 3, PI / 8 * 4, - PI / 8 * 4, PI / 8 * 5,\
             - PI / 8 * 5, PI / 8 * 6, - PI / 8 * 6, PI / 8 * 7, - PI / 8 * 7};
