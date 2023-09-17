@@ -32,6 +32,5 @@ void my_car_create(my_car_t *car, my_map_t *map)
     car->pos.y = 0;
     car->size.y = 0;
     car->size.x = 0;
-    
     find_current_gate(car, map);
 }
