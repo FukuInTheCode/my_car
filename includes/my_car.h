@@ -36,6 +36,7 @@ typedef struct {
     double *sight_angles;
     uint32_t sight_l_n;
     double sight_dist;
+    my_nn_t brain;
 } my_car_t;
 
 void my_map_init(my_map_t *map);
