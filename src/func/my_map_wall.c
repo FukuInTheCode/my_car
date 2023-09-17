@@ -35,6 +35,8 @@ void my_map_add_wall(my_map_t *map, sfRenderWindow *window)
 
 void my_map_del_wall(my_map_t *map, sfRenderWindow *window)
 {
+    if (map->walls_n <= 0)
+        return;
     sfVertexArray **tmp = map->walls;
     map->walls = calloc(map->walls_n - 1, sizeof(sfVertexArray *));
     for (uint32_t i = 0; i < map->walls_n - 1; ++i)
