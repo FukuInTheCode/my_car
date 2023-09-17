@@ -21,8 +21,8 @@ static void find_current_gate(my_car_t *car, my_map_t *map)
 
 void my_car_create(my_car_t *car, void *map)
 {
-    car->max_rota_speed = 0;
-    car->max_speed = 0;
+    car->max_rota_speed = 6;
+    car->max_speed = 15;
     car->velocity = 0;
     car->angle_velocity = 0;
     car->acceleration = 0;
@@ -30,10 +30,14 @@ void my_car_create(my_car_t *car, void *map)
     car->reward = 0;
     car->pos.x = 0;
     car->pos.y = 0;
-    car->size.y = 0;
-    car->size.x = 0;
-    car->sight_l_n = 0;
-    car->sight_dist = 0;
+    car->size.y = 30;
+    car->size.x = 10;
+    double sight_angles[] = {0, PI / 8, - PI / 8, PI / 8 * 2, - PI / 8 * 2,\
+            PI / 8 * 3, - PI / 8 * 3, PI / 8 * 4, - PI / 8 * 4, PI / 8 * 5,\
+            - PI / 8 * 5, PI / 8 * 6, - PI / 8 * 6, PI / 8 * 7, - PI / 8 * 7};
+    car->sight_angles = sight_angles;
+    car->sight_l_n = sizeof(sight_angles) / sizeof(double);;
+    car->sight_dist = 100.;
     car->brain.name = "brain";
     car->brain.size = 0;
     find_current_gate(car, (my_map_t *)map);
