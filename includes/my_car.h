@@ -33,6 +33,7 @@ typedef struct {
     double reward;
     sfVector2f pos;
     sfVector2f size;
+    double *sight_angles;
 } my_car_t;
 
 void my_map_init(my_map_t *map);
