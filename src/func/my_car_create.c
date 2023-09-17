@@ -6,6 +6,7 @@ static void find_current_gate(my_car_t *car, my_map_t *map)
     double closer_dist = pow(gate_rect.top + gate_rect.height / 2., 2);
     closer_dist += pow(gate_rect.left + gate_rect.width / 2., 2);
     closer_dist = sqrt(closer_dist);
+    car->current_gate = 0;
     for (uint32_t i = 1; i < map->gates_n; ++i) {
         double dist = 
     }
