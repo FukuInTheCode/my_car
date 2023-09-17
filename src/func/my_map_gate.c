@@ -39,6 +39,6 @@ void my_map_del_gate(my_map_t *map)
     for (uint32_t i = 0; i < map->gates_n - 2; ++i)
         map->gates[i] = tmp_gates[i];
     map->gates[map->gates_n - 2] = tmp_gates[map->gates_n - 1];
-    map->gates -= 1;
+    map->gates_n -= 1;
     free(tmp_gates);
 }
