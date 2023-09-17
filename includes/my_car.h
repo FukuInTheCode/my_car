@@ -33,6 +33,8 @@ void my_map_del_wall(my_map_t *map);
 void my_map_del_gate(my_map_t *map);
 bool my_map_is_intersecting_wall(my_map_t *map, sfVertex *line,\
                                                     sfVector2f *res);
+bool my_map_is_intersecting_gate(my_map_t *map, sfVertex *line,\
+                                                    sfVector2f *res);
 
 #ifdef MAP_INTERSECT
 static bool is_intersecting(sfVertex *line1, sfVertex *line2, sfVector2f *res)
