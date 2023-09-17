@@ -1,6 +1,7 @@
 #include "../../includes/my.h"
 
-bool my_map_is_intersecting_wall(my_map_t *map, sfVertex *line, sfVector2f *res)
+bool my_map_is_intersecting_wall(my_map_t *map, sfVertex *line,\
+                                                    sfVector2f *res)
 {
     bool is_intersect = false;
     for (uint32_t i = 0; i < map->walls_n && !is_intersect; ++i) {
