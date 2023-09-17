@@ -19,8 +19,9 @@ static void find_current_gate(my_car_t *car, my_map_t *map)
     }
 }
 
-void my_car_create(my_car_t *car, void *map)
+void my_car_create(void *car_ptr, void *map)
 {
+    my_car_t *car = (my_car_t *)car_ptr;
     car->max_rota_speed = 6;
     car->max_speed = 15;
     car->velocity = 0;
