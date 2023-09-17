@@ -11,7 +11,7 @@ typedef enum {
     gate_mode,
     start_mode,
     race_mode
-} m_status_t;
+} my_status_t;
 
 typedef struct {
     sfVector2f start;
@@ -19,7 +19,8 @@ typedef struct {
     sfVertexArray **gates;
     uint32_t walls_n;
     uint32_t gates_n;
-    m_status_t status;
+    my_status_t status;
+
 } my_map_t;
 
 void my_map_init(my_map_t *map);
