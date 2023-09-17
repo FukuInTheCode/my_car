@@ -24,16 +24,6 @@ static void handle_keyboard(my_map_t *map, sfRenderWindow *window)
         map->status = no_mode;
 }
 
-static void handle_show(my_map_t *map, sfRenderWindow *window)
-{
-    sfRenderWindow_clear(window, sfBlack);
-    for (uint32_t i = 0; i < map->walls_n; ++i)
-        sfRenderWindow_drawVertexArray(window, map->walls[i], NULL);
-    for (uint32_t i = 0; i < map->gates_n; ++i)
-        sfRenderWindow_drawVertexArray(window, map->gates[i], NULL);
-    sfRenderWindow_display(window);
-}
-
 void my_map_create(my_map_t *map, sfVideoMode mode)
 {
     sfRenderWindow *window = sfRenderWindow_create(mode, "create race", sfDefaultStyle, NULL);
