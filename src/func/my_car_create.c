@@ -8,6 +8,6 @@ void my_car_create(my_car_t *car, my_map_t *map)
     angle_velocity = 0;
     acceleration = 0;
     angle_acceleration = 0;
-    current_gate = find_current_gate(car, map);
+    find_current_gate(car, map);
     reward = 0;
 }
