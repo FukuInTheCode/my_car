@@ -32,5 +32,9 @@ void my_car_create(my_car_t *car, my_map_t *map)
     car->pos.y = 0;
     car->size.y = 0;
     car->size.x = 0;
+    car->sight_l_n = 0;
+    car->sight_dist = 0;
+    car->brain.name = "brain";
+    car->brain.size = 0;
     find_current_gate(car, map);
 }
