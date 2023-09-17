@@ -42,5 +42,6 @@ void my_map_del_wall(my_map_t *map)
     for (uint32_t i = 0; i < map->walls_n - 2; ++i)
         map->walls[i] = tmp_walls[i];
     map->walls[map->walls_n - 2] = tmp_walls[map->walls_n - 1];
+    map->walls_n -= 1;
 
 }
