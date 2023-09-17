@@ -31,5 +31,7 @@ void my_map_add_gate(my_map_t *map, sfRenderWindow *window);
 void my_map_place_start(my_map_t *map, sfRenderWindow *window);
 void my_map_del_wall(my_map_t *map);
 void my_map_del_gate(my_map_t *map);
+bool my_map_is_intersecting_wall(my_map_t *map, sfVertex *line,\
+                                                    sfVector2f *res);
 
 #endif
