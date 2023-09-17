@@ -8,7 +8,10 @@ static void find_current_gate(my_car_t *car, my_map_t *map)
     closer_dist = sqrt(closer_dist);
     car->current_gate = 0;
     for (uint32_t i = 1; i < map->gates_n; ++i) {
-        double dist = 
+        sfFloatRect tmp_rect = sfVertexArray_getBounds(map->gates[i]);
+        double tmp_dist = pow(tmp_rect.top + tmp_rect.height / 2., 2);
+        tmp_dist += pow(tmp_rect.left + tmp_rect.width / 2., 2);
+        tmp_dist = sqrt(tmp_dist);
     }
 }
 
