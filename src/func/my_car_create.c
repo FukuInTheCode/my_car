@@ -28,13 +28,11 @@ static void setup_garbage(my_car_t *car)
     car->acceleration = 0;
     car->angle_acceleration = 0;
     car->reward = 0;
-    car->pos.x = 0;
-    car->pos.y = 0;
     car->size.y = 30;
     car->size.x = 10;
 }
 
-void my_car_create(void *car_ptr, void *map)
+void my_car_create(void *car_ptr, void *map_ptr)
 {
     my_car_t *car = (my_car_t *)car_ptr;
     setup_garbage(car);
