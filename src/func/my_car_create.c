@@ -12,8 +12,8 @@ static void find_current_gate(my_car_t *car, my_map_t *map)
         double tmp_dist = pow(tmp_rect.top + tmp_rect.height / 2., 2);
         tmp_dist += pow(tmp_rect.left + tmp_rect.width / 2., 2);
         tmp_dist = sqrt(tmp_dist);
-        if (closer_dist > dist) {
-            closer_dist = dist;
+        if (closer_dist > tmp_dist) {
+            closer_dist = tmp_dist;
             car->current_gate = i;
         }
     }
