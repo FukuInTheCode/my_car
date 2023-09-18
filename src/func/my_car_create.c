@@ -48,5 +48,5 @@ void my_car_create(void *car_ptr, void *map_ptr)
     car->brain.dims = dims;
     car->brain.size = sizeof(dims) / sizeof(dims[0]);
     my_nn_create(&(car->brain));
-    find_current_gate(car, (my_map_t *)map);
+    find_current_gate(car, map);
 }
