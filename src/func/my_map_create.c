@@ -45,6 +45,8 @@ void my_map_create(my_map_t *map, sfVideoMode mode)
             sfRenderWindow_close(window);
         my_map_draw(map, window);
         handle_keyboard(map, window);
+        sfRenderWindow_display(window);
+
     }
     sfRenderWindow_destroy(window);
 }
