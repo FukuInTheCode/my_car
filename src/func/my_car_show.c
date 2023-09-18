@@ -9,4 +9,5 @@ void my_car_draw(sfRenderWindow *window, my_car_t *car, my_map_t *car)
     sfRectangleShape_setOrigin(car_rect, car_origin);
     sfRenderWindow_drawRectangleShape(window, car_rect, NULL);
     sfRectangleShape_destroy(car_rect);
+    sfRenderWindow_display(window);
 }
