@@ -10,6 +10,20 @@ int main(int argc, char* argv[])
     my_map_create(&map, mode);
     my_car_create((void *)&carz, (void *)&map);
     printf("%lf, %lf\n", carz.pos.x, carz.pos.y);
+
+    sfRenderWindow *window = sfRenderWindow_create(mode, "test", sfDefaultStyle, NULL);
+    sfEvent event;
+    while (sfRenderWindow_isOpen(window)) {
+        while(sfRenderWindow_pollEvent(window, &event)){
+            if (event.type == sfEvtClosed)
+                sfRenderWindow_close(window);
+        }
+        sfRenderWindow_clear(window, sfBlack);
+        my_map_draw(map, window);
+        sfRenderWindow_display(window);
+    }
+    sfRenderWindow_destroy(window);
+
 #if 0
     // env var
     // car var
