@@ -5,10 +5,10 @@ int main(int argc, char* argv[])
 {
     my_map_t map;
     my_car_t carz;
-    my_car_create((void *)&carz, (void *)&map);
     my_map_init(&map);
     sfVideoMode mode = {2500, 1500, 32};
     my_map_create(&map, mode);
+    my_car_create((void *)&carz, (void *)&map);
 #if 0
     // env var
     // car var

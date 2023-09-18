@@ -41,6 +41,8 @@ void my_map_create(my_map_t *map, sfVideoMode mode)
         if (map->status == no_mode && sfKeyboard_isKeyPressed(sfKeyG)\
                                 && sfKeyboard_isKeyPressed(sfKeyLControl))
             my_map_del_gate(map);
+        if (map->status == race_mode)
+            sfRenderWindow_close(window);
         my_map_draw(map, window);
         handle_keyboard(map, window);
     }
