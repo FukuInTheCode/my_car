@@ -35,7 +35,7 @@ static void setup_garbage(my_car_t *car)
 void my_car_create(void *car_ptr, void *map_ptr)
 {
     my_car_t *car = (my_car_t *)car_ptr;
-    my_car_t *map = (my_car_t *)map_ptr;
+    my_map_t *map = (my_map_t *)map_ptr;
     car->pos.x = map->start.x;
     car->pos.y = map->start.y;
     setup_garbage(car);
