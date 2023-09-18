@@ -19,7 +19,7 @@ int main(int argc, char* argv[])
                 sfRenderWindow_close(window);
         }
         sfRenderWindow_clear(window, sfBlack);
-        my_map_draw(map, window);
+        my_map_draw(&map, window);
         sfRenderWindow_display(window);
     }
     sfRenderWindow_destroy(window);
