@@ -9,6 +9,7 @@ int main(int argc, char* argv[])
     sfVideoMode mode = {2500, 1500, 32};
     my_map_create(&map, mode);
     my_car_create((void *)&carz, (void *)&map);
+    printf("%lf, %lf\n", carz.pos.x, carz.pos.y);
 #if 0
     // env var
     // car var
