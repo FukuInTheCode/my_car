@@ -7,5 +7,4 @@ void my_map_draw(my_map_t *map, sfRenderWindow *window)
         sfRenderWindow_drawVertexArray(window, map->walls[i], NULL);
     for (uint32_t i = 0; i < map->gates_n; ++i)
         sfRenderWindow_drawVertexArray(window, map->gates[i], NULL);
-    sfRenderWindow_display(window);
 }
