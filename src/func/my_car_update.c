@@ -2,6 +2,15 @@
 
 uint32_t my_car_update(my_car_t *car, void *pop, uint32_t pop_size, my_map_t *map)
 {
+    if (sfKeyboard_isKeyPressed(sfKeyA) && car->angle_velocity > - car->max_rota_speed)
+        car->angle_acceleration = -1;
+    if (sfKeyboard_isKeyPressed(sfKeyD) && car->angle_velocity < car->max_rota_speed)
+        car->angle_acceleration = 1;
+    if (sfKeyboard_isKeyPressed(sfKeyW) && car->velocity < car->max_speed)
+        car->acceleration = 1;
+    if (sfKeyboard_isKeyPressed(sfKeyS) && car->velocity > - car->max_speed)
+        car->acceleration = -1;
+
     if (car->acceleration < 0)
         car->acceleration = my_min_between(car->acceleration + 0.3, 0);
     else if (car->acceleration > 0)
