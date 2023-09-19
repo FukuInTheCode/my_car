@@ -36,8 +36,6 @@ void my_car_create(void *car_ptr, void *map_ptr)
 {
     my_car_t *car = (my_car_t *)car_ptr;
     my_map_t *map = (my_map_t *)map_ptr;
-    car->pos.x = map->start.x;
-    car->pos.y = map->start.y;
     setup_garbage(car);
     double sight_angles[] = {0, PI / 8, - PI / 8, PI / 8 * 2, - PI / 8 * 2,\
             PI / 8 * 3, - PI / 8 * 3, PI / 8 * 4, - PI / 8 * 4, PI / 8 * 5,\
@@ -52,7 +50,7 @@ void my_car_create(void *car_ptr, void *map_ptr)
     my_nn_create(&(car->brain));
     find_current_gate(car, map);
     car->rect = sfRectangleShape_create();
-    sfRectangleShape_setPosition(car->rect, car->pos);
+    sfRectangleShape_setPosition(car->rect, map->start);
     sfRectangleShape_setSize(car->rect, car->size);
     sfRectangleShape_setFillColor(car->rect, sfRed);
     sfVector2f car_origin = {car->size.x / 2., car->size.y / 2.};
