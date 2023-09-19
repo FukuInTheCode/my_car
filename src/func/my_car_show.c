@@ -10,5 +10,4 @@ void my_car_draw(sfRenderWindow *window, void *car_ptr, void *map_ptr)
     sfVector2f car_origin = {car->size.x / 2., car->size.y / 2.};
     sfRectangleShape_setOrigin(car_rect, car_origin);
     sfRenderWindow_drawRectangleShape(window, car_rect, NULL);
-    sfRectangleShape_destroy(car_rect);
 }
