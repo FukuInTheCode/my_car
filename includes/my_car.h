@@ -37,6 +37,7 @@ typedef struct {
     uint32_t sight_l_n;
     double sight_dist;
     my_nn_t brain;
+    sfRectangleShape *rect;
 } my_car_t;
 
 void my_map_init(my_map_t *map);
