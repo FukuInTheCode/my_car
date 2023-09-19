@@ -2,6 +2,8 @@
 
 void my_car_draw(sfRenderWindow *window, void *car_ptr, void *map_ptr)
 {
+    my_car_t *car = (my_car_t *)car_ptr;
+    my_map_t *map = (my_map_t *)map_ptr;
     sfRectangleShape *car_rect = sfRectangleShape_create();
     sfRectangleShape_setPosition(car_rect, car->pos);
     sfRectangleShape_setSize(car_rect, car->size);
