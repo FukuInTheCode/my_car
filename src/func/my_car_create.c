@@ -24,7 +24,7 @@ static void setup_garbage(my_car_t *car)
     car->max_rota_speed = 6;
     car->max_speed = 15;
     car->velocity = 0;
-    car->angle_velocity = 0;
+    car->angle_velocity = 6;
     car->acceleration = 0;
     car->angle_acceleration = 0;
     car->reward = 0;
