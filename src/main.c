@@ -11,6 +11,7 @@ int main(int argc, char* argv[])
     my_car_create((void *)&carz, (void *)&map);
 
     sfRenderWindow *window = sfRenderWindow_create(mode, "test", sfDefaultStyle, NULL);
+    sfRenderWindow_setFramerateLimit(window, 60);
     sfEvent event;
     while (sfRenderWindow_isOpen(window)) {
         while(sfRenderWindow_pollEvent(window, &event)){
