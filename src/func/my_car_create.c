@@ -51,4 +51,11 @@ void my_car_create(void *car_ptr, void *map_ptr)
     car->brain.size = sizeof(dims) / sizeof(dims[0]);
     my_nn_create(&(car->brain));
     find_current_gate(car, map);
+    car->rect = sfRectangleShape_create();
+    sfRectangleShape_setPosition(car->rect, car->pos);
+    sfRectangleShape_setSize(car->rect, car->size);
+    sfRectangleShape_setFillColor(car->rect, sfRed);
+    sfVector2f car_origin = {car->size.x / 2., car->size.y / 2.};
+    sfRectangleShape_setOrigin(car->rect, car_origin);
+
 }
