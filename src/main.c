@@ -20,6 +20,7 @@ int main(int argc, char* argv[])
         my_map_draw(&map, window);
         my_car_draw(window, (void *)&carz, (void *)&map);
         sfRenderWindow_display(window);
+        my_car_update(&carz, NULL, 0, &map);
     }
     sfRenderWindow_destroy(window);
 
