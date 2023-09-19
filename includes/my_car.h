@@ -31,7 +31,6 @@ typedef struct {
     double angle_acceleration;
     uint32_t current_gate;
     double reward;
-    sfVector2f pos;
     sfVector2f size;
     double *sight_angles;
     uint32_t sight_l_n;
