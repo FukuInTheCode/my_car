@@ -1,6 +1,6 @@
 #include "../../includes/my.h"
 
-void my_car_draw(sfRenderWindow *window, my_car_t *car, my_map_t *map)
+void my_car_draw(sfRenderWindow *window, void *car_ptr, void *map_ptr)
 {
     sfRectangleShape *car_rect = sfRectangleShape_create();
     sfRectangleShape_setPosition(car_rect, car->pos);
