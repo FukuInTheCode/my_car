@@ -43,7 +43,7 @@ void my_map_create(my_map_t *map, sfVideoMode mode)
             my_map_del_gate(map);
         if (map->status == race_mode)
             sfRenderWindow_close(window);
-        my_map_draw(map, window);
+        my_map_draw(window, map);
         handle_keyboard(map, window);
         sfRenderWindow_display(window);
 
