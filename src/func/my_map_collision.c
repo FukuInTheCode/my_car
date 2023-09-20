@@ -21,6 +21,7 @@ bool my_map_is_intersecting_wall(my_map_t *map, sfVertex *line,\
 bool my_map_is_intersecting_gate(my_map_t *map, sfVertex *line,\
                                                     uint32_t *res)
 {
+    sfVector2f tmp;
     bool is_intersect = false;
     for (uint32_t i = 0; i < map->gates_n && !is_intersect; ++i) {
         size_t count = sfVertexArray_getVertexCount(map->gates[i]);
@@ -29,7 +30,7 @@ bool my_map_is_intersecting_gate(my_map_t *map, sfVertex *line,\
                 *sfVertexArray_getVertex(map->gates[i], j),
                 *sfVertexArray_getVertex(map->gates[i], j + 1)
             };
-            is_intersect = is_intersecting(line, wall, res);
+            is_intersect = is_intersecting(line, wall, *tmp);
         }
     }
     return is_intersect;
