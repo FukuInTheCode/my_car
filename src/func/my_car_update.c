@@ -1,7 +1,9 @@
 #include "../../includes/my.h"
 
-uint32_t my_car_update(void *car, void *pop, uint32_t pop_size, void *map)
+uint32_t my_car_update(void *car_ptr, void *pop, uint32_t pop_size, void *map_ptr)
 {
+    my_car_t *car = (my_car_t *)car_ptr;
+    my_map_t *map = (my_map_t *)map_ptr;
     if (sfKeyboard_isKeyPressed(sfKeyA) && car->angle_velocity > - car->max_rota_speed)
         car->angle_acceleration = -1;
     if (sfKeyboard_isKeyPressed(sfKeyD) && car->angle_velocity < car->max_rota_speed)
