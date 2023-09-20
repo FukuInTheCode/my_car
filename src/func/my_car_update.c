@@ -71,5 +71,6 @@ uint32_t my_car_update(void *car_ptr, void *pop, uint32_t pop_size, void *map_pt
         if (!my_map_is_intersecting_wall(map, line, &inter_pt))
             continue;
         printf("intersecting in %lf, %lf\n", inter_pt.x, inter_pt.y);
+        break;
     }
 }
