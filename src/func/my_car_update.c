@@ -74,6 +74,5 @@ uint32_t my_car_update(void *car_ptr, void *pop, uint32_t pop_size, void *map_pt
         printf("intersecting in %lf, %lf\n", inter_pt.x, inter_pt.y);
         break;
     }
-    printf("Hello");
     return pop_size;
 }
