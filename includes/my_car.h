@@ -51,7 +51,7 @@ void my_map_del_gate(my_map_t *map);
 bool my_map_is_intersecting_wall(my_map_t *map, sfVertex *line,\
                                                     sfVector2f *res);
 bool my_map_is_intersecting_gate(my_map_t *map, sfVertex *line,\
-                                                    sfVector2f *res);
+                                                    uint32_t *res);
 void my_map_draw(my_map_t *map, sfRenderWindow *window);
 void my_car_create(void *car_ptr, void *map_ptr);
 void my_car_draw(sfRenderWindow *window, void *car_ptr, void *map_ptr);
