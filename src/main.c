@@ -18,7 +18,7 @@ int main(int argc, char* argv[])
             if (event.type == sfEvtClosed)
                 sfRenderWindow_close(window);
         }
-        my_map_draw(&map, window);
+        my_map_draw(window, (void *)&map);
         my_car_draw(window, (void *)&carz, (void *)&map);
         sfRenderWindow_display(window);
         my_car_update(&carz, NULL, 0, &map);
