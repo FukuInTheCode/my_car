@@ -1,6 +1,6 @@
 #include "../../includes/my.h"
 
-void my_map_draw(my_map_t *map, sfRenderWindow *window)
+void my_map_draw(sfRenderWindow *window, void *map_ptr)
 {
     sfRenderWindow_clear(window, sfBlack);
     for (uint32_t i = 0; i < map->walls_n; ++i)
