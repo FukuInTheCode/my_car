@@ -40,6 +40,7 @@ uint32_t my_car_update(void *car_ptr, void *pop, uint32_t pop_size, void *map_pt
     sfRectangleShape_move(car->rect, dir_vec);
     sfVector2f car_origin = sfRectangleShape_getOrigin(car->rect);
     sfVertex sides[8];
+
     sfVector2f center = sfRectangleShape_getPosition(car->rect);
     sfVector2f z1 = {
         center.x - car_origin.x * cos(angle) - car_origin.y * sin(angle),
@@ -73,5 +74,6 @@ uint32_t my_car_update(void *car_ptr, void *pop, uint32_t pop_size, void *map_pt
         printf("intersecting in %lf, %lf\n", inter_pt.x, inter_pt.y);
         break;
     }
+    printf("Hello");
     return pop_size;
 }
