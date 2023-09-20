@@ -38,4 +38,31 @@ uint32_t my_car_update(void *car_ptr, void *pop, uint32_t pop_size, void *map_pt
         sin(angle + PI / 2.) * car->velocity
     };
     sfRectangleShape_move(car->rect, dir_vec);
+
+    sfVertex sides[8];
+    sfVector2f center = sfRectangleShape_getPosition(car_rect);
+    sfVector2f z1 = {
+        center.x - car_origine.x * cos(angle) - car_origine.y * sin(angle),
+        center.y - car_origine.x * sin(angle) + car_origine.y * cos(angle)
+    };
+    sfVector2f z2 = {
+        center.x + car_origine.x * cos(angle) - car_origine.y * sin(angle),
+        center.y + car_origine.x * sin(angle) + car_origine.y * cos(angle)
+    };
+    sfVector2f z3 = {
+        center.x + car_origine.x * cos(angle) + car_origine.y * sin(angle),
+        center.y + car_origine.x * sin(angle) - car_origine.y * cos(angle)
+    };
+    sfVector2f z4 = {
+        center.x - car_origine.x * cos(angle) + car_origine.y * sin(angle),
+        center.y - car_origine.x * sin(angle) - car_origine.y * cos(angle)
+    }
+    sides[0].position = z1;
+    sides[1].position = z2;
+    sides[2].position = z2;
+    sides[3].position = z3;
+    sides[4].position = z3;
+    sides[5].position = z4;
+    sides[6].position = z4;
+    sides[7].position = z1;
 }
