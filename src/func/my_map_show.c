@@ -2,6 +2,7 @@
 
 void my_map_draw(sfRenderWindow *window, void *map_ptr)
 {
+    my_map_t *map = (my_map_t *)map_ptr;
     sfRenderWindow_clear(window, sfBlack);
     for (uint32_t i = 0; i < map->walls_n; ++i)
         sfRenderWindow_drawVertexArray(window, map->walls[i], NULL);
