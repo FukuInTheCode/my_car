@@ -3,6 +3,8 @@
 uint32_t my_car_update(void *car_ptr, void *pop, uint32_t pop_size, void *map_ptr)
 {
     my_car_t *car = (my_car_t *)car_ptr;
+    if (car->is_dead)
+        return pop_size;
     my_map_t *map = (my_map_t *)map_ptr;
     if (sfKeyboard_isKeyPressed(sfKeyA) && car->angle_velocity > - car->max_rota_speed)
         car->angle_acceleration = -1;
