@@ -30,7 +30,7 @@ bool my_map_is_intersecting_gate(my_map_t *map, sfVertex *line,\
                 *sfVertexArray_getVertex(map->gates[i], j),
                 *sfVertexArray_getVertex(map->gates[i], j + 1)
             };
-            is_intersect = is_intersecting(line, wall, *tmp);
+            is_intersect = is_intersecting(line, wall, &tmp);
         }
     }
     return is_intersect;
