@@ -56,7 +56,7 @@ uint32_t my_car_update(void *car_ptr, void *pop, uint32_t pop_size, void *map_pt
     sfVector2f z4 = {
         center.x - car_origin.x * cos(angle) + car_origin.y * sin(angle),
         center.y - car_origin.x * sin(angle) - car_origin.y * cos(angle)
-    }
+    };
     sides[0].position = z1;
     sides[1].position = z2;
     sides[2].position = z2;
