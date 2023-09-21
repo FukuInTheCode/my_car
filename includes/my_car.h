@@ -20,7 +20,6 @@ typedef struct {
     uint32_t walls_n;
     uint32_t gates_n;
     my_status_t status;
-    sfRenderWindow *tmp;
 } my_map_t;
 
 typedef struct {
