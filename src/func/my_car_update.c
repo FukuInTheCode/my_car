@@ -89,8 +89,7 @@ uint32_t my_car_update(void *car_ptr, void *pop, uint32_t pop_size, void *map_pt
             continue;
         line[0].color = sfGreen;
         line[1].color = sfGreen;
-        sfRenderWindow_drawPrimitives(map->tmp, line, 2, sfLines, NULL);
-        
+        // sfRenderWindow_drawPrimitives(map->tmp, line, 2, sfLines, NULL);
     }
     return pop_size;
 }
