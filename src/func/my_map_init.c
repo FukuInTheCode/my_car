@@ -8,5 +8,4 @@ void my_map_init(my_map_t *map)
     my_map_alloc_wall(map);
     map->gates_n = 0;
     my_map_alloc_gate(map);
-    map->tmp = NULL;
 }
