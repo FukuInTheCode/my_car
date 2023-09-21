@@ -76,5 +76,17 @@ uint32_t my_car_update(void *car_ptr, void *pop, uint32_t pop_size, void *map_pt
         car->is_dead = true;
         break;
     }
+
+    for (uint32_t i = 0; i < car->sight_l_n; ++i) {
+        sfVector2f inter_vec;
+        bool see_road = false;
+        sfVertex line[] = {
+            {center, sfWhite, {0, 0}},
+            {{center.x + car->sight_dist * cos(angle + car->sight_angles[i] + PI / 2), center.y + car->sight_dist * sin(angle + car->sight_angles[i]  + PI / 2)}, sfWhite, {0, 0}},
+        };
+        if (!my_map_is_intersecting_wall(map, tmp_sl, &inter_vec));
+            continue;
+        printf("See wall at: %lf°\n", car->sight_angles[i]);
+    }
     return pop_size;
 }
