@@ -86,7 +86,7 @@ uint32_t my_car_update(void *car_ptr, void *pop, uint32_t pop_size, void *map_pt
         };
         if (!my_map_is_intersecting_wall(map, line, &inter_vec))
             continue;
-        printf("See wall at: %lf°\n", car->sight_angles[i]);
+        printf("See wall at: %lf deg\n", car->sight_angles[i]);
     }
     return pop_size;
 }
