@@ -1,6 +1,6 @@
 #include "../../includes/my.h"
 
-uint32_t my_car_update(void *car_ptr, void *pop, uint32_t pop_size, void *map_ptr)
+uint32_t my_car_update(void *car_ptr, void *pop, uint32_t pop_size, void *map_ptr, sfRenderWindow *w)
 {
     my_car_t *car = (my_car_t *)car_ptr;
     if (car->is_dead)
@@ -86,9 +86,9 @@ uint32_t my_car_update(void *car_ptr, void *pop, uint32_t pop_size, void *map_pt
         sfVector2f inter_vec;
         sfVertex line[] = {
             {center, sfWhite, {0, 0}},
-            {{center.x + car->sight_dist * cos(angle + car->sight_angles[i] +\
-                PI / 2), center.y + car->sight_dist * sin(angle +\
-                            car->sight_angles[i] + PI / 2)}, sfWhite, {0, 0}},
+            {{center.x + car->sight_dist * cos(angle + car->sight_angles[i])\
+                                , center.y + car->sight_dist * sin(angle +\
+                            car->sight_angles[i])}, sfWhite, {0, 0}},
         };
         if (!my_map_is_intersecting_wall(map, line, &inter_vec))
             continue;
