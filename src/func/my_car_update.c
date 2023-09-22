@@ -95,12 +95,6 @@ uint32_t my_car_update(void *car_ptr, void *pop, uint32_t pop_size, void *map_pt
         double inter_dist = pow(inter_vec.x - center.x, 2);
         inter_dist += pow(inter_vec.y - center.y, 2);
         inter_dist = sqrt(inter_dist);
-        sfCircleShape *pt = sfCircleShape_create();
-        sfCircleShape_setRadius(pt, 10);
-        sfCircleShape_setFillColor(pt, sfRed);
-        sfCircleShape_setPosition(pt, inter_vec);
-        sfRenderWindow_drawCircleShape(w, pt, NULL);
-        sfCircleShape_destroy(pt);
         my_matrix_set(&inputs, i + 2, 0, inter_dist);
     }
     // MAT_PRINT(inputs);
