@@ -80,7 +80,7 @@ uint32_t my_car_update(void *car_ptr, void *pop, uint32_t pop_size, void *map_pt
     MAT_DECLA(inputs);
     my_matrix_create(car->sight_l_n + 2, 1, 1, &inputs);
     my_matrix_set(&inputs, 0, 0, center.x);
-    my_matrix_set(&inputs, 0, 0, center.y);
+    my_matrix_set(&inputs, 1, 0, center.y);
 
     for (uint32_t i = 0; i < car->sight_l_n; ++i) {
         sfVector2f inter_vec;
@@ -97,6 +97,7 @@ uint32_t my_car_update(void *car_ptr, void *pop, uint32_t pop_size, void *map_pt
         inter_dist = sqrt(inter_dist);
         my_matrix_set(&inputs, i + 2, 0, inter_dist);
     }
+    MAT_PRINT(inputs);
     MAT_FREE(inputs);
     return pop_size;
 }
