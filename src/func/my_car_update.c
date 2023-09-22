@@ -1,6 +1,6 @@
 #include "../../includes/my.h"
 
-uint32_t my_car_update(void *car_ptr, void *pop, uint32_t pop_size, void *map_ptr, sfRenderWindow *w)
+uint32_t my_car_update(void *car_ptr, void *pop, uint32_t pop_size, void *map_ptr)
 {
     my_car_t *car = (my_car_t *)car_ptr;
     if (car->is_dead)
