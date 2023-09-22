@@ -78,7 +78,7 @@ uint32_t my_car_update(void *car_ptr, void *pop, uint32_t pop_size, void *map_pt
     }
 
     MAT_DECLA(inputs);
-    my_matrix_create(car->brain.dims[0], 1, 1, &inputs);
+    my_matrix_create(car->sight_l_n + 2, 1, 1, &inputs);
 
     for (uint32_t i = 0; i < car->sight_l_n; ++i) {
         sfVector2f inter_vec;
