@@ -96,8 +96,6 @@ uint32_t my_car_update(void *car_ptr, void *pop, uint32_t pop_size, void *map_pt
         inter_dist += pow(inter_vec.y - center.y, 2);
         inter_dist = sqrt(inter_dist);
         my_matrix_set(&inputs, i + 2, 0, inter_dist);
-
-        
     }
     MAT_FREE(inputs);
     return pop_size;
