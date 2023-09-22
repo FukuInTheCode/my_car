@@ -85,10 +85,10 @@ uint32_t my_car_update(void *car_ptr, void *pop, uint32_t pop_size, void *map_pt
         };
         if (!my_map_is_intersecting_wall(map, line, &inter_vec))
             continue;
-            double inter_dist = pow(inter_vec.x - center.x, 2);
-            double inter_dist += pow(inter_vec.y - center.y, 2);
-            double inter_dist = sqrt(inter_dist);
-            printf("%u: %lf\n", i, inter_dist);
+        double inter_dist = pow(inter_vec.x - center.x, 2);
+        double inter_dist += pow(inter_vec.y - center.y, 2);
+        double inter_dist = sqrt(inter_dist);
+        printf("%u: %lf\n", i, inter_dist);
     }
     return pop_size;
 }
