@@ -3,6 +3,7 @@
 
 int main(int argc, char* argv[])
 {
+    srand(time(0));
     my_map_t map;
     my_car_t carz;
     my_map_init(&map);
