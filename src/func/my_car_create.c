@@ -30,6 +30,9 @@ static void setup_garbage(my_car_t *car)
     car->reward = 0;
     car->size.y = 30;
     car->size.x = 10;
+    car->brain.acti_type = base_type;
+    car->brain.funcs.af = my_nn_atan;
+    car->brain.funcs.grad_af = my_nn_atan_grad;
 }
 
 void my_car_create(void *car_ptr, void *map_ptr)
