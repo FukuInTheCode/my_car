@@ -6,10 +6,12 @@ int main(int argc, char* argv[])
     srand(time(0));
     my_map_t map;
     my_car_t carz;
+    my_car_t carz2;
     my_map_init(&map);
     sfVideoMode mode = {2500, 1500, 32};
     my_map_create(&map, mode);
     my_car_create((void *)&carz, (void *)&map);
+    my_car_create((void *)&carz2, (void *)&map);
 
     sfRenderWindow *window = sfRenderWindow_create(mode, "test", sfDefaultStyle, NULL);
     sfRenderWindow_setFramerateLimit(window, 60);
@@ -22,6 +24,7 @@ int main(int argc, char* argv[])
         my_map_draw(window, (void *)&map);
         my_car_draw(window, (void *)&carz, (void *)&map);
         my_car_update(&carz, NULL, 0, &map);
+        my_car_update(&carz2, NULL, 0, &map);
         sfRenderWindow_display(window);
     }
     sfRenderWindow_destroy(window);
