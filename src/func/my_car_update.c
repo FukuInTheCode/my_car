@@ -102,7 +102,16 @@ uint32_t my_car_update(void *car_ptr, void *pop, uint32_t pop_size, void *map_pt
     my_matrix_multiplybyscalar_2(&inputs, 1. / my_matrix_max(&inputs));
     MAT_DECLA(pred);
     my_nn_predict(&(car->brain), &inputs, &pred);
-    MAT_PRINT(pred);
+    uint32_t id = my_matrix_find_col_index(&pred, 0, my_matrix_max(&pred));
+    if ( && car->angle_velocity > - car->max_rota_speed)
+        car->angle_acceleration = -1;
+    if (sfKeyboard_isKeyPressed(sfKeyD) && car->angle_velocity < car->max_rota_speed)
+        car->angle_acceleration = 1;
+    if (sfKeyboard_isKeyPressed(sfKeyW) && car->velocity < car->max_speed)
+        car->acceleration = 1;
+    if (sfKeyboard_isKeyPressed(sfKeyS) && car->velocity > - car->max_speed)
+        car->acceleration = -1;
+    // MAT_PRINT(pred);
     MAT_FREE(pred);
     MAT_FREE(inputs);
     return pop_size;
