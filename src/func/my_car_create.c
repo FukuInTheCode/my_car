@@ -33,6 +33,7 @@ static void setup_garbage(my_car_t *car)
     car->brain.acti_type = base_type;
     car->brain.funcs.af = my_nn_atan;
     car->brain.funcs.grad_af = my_nn_atan_grad;
+    car->is_dead = false;
 }
 
 void my_car_create(void *car_ptr, void *map_ptr)
