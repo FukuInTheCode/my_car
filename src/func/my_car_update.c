@@ -97,6 +97,8 @@ uint32_t my_car_update(void *car_ptr, void *pop, uint32_t pop_size, void *map_pt
         inter_dist = sqrt(inter_dist);
         my_matrix_set(&inputs, i + 2, 0, inter_dist);
     }
+    my_matrix_addscalar_2(&inputs, -1 * my_matrix_min(&inputs));
+    my_matrix_multiplybyscalar_2(&inputs, 1. / my_matrix_max(&inputs));
     MAT_DECLA(pred);
     my_nn_predict(&(car->brain), &inputs, &pred);
     MAT_PRINT(pred);
