@@ -30,6 +30,9 @@ int main(int argc, char* argv[])
     }
     sfRenderWindow_destroy(window);
 
+    my_car_free((void *)&carz, (void *)&map);
+    my_car_free((void *)&carz2, (void *)&map);
+
 #if 0
     // env var
     // car var
