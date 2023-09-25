@@ -58,6 +58,7 @@ void my_car_create(void *car_ptr, void *map_ptr);
 void my_car_draw(sfRenderWindow *window, void *car_ptr, void *map_ptr);
 uint32_t my_car_update(void *car_ptr, void *pop, uint32_t pop_size, void *map_ptr);
 void my_car_free(void *car_ptr, void *map);
+void my_map_free(my_map_t *map);
 
 #ifdef MAP_INTERSECT
 static bool is_intersecting(sfVertex *line1, sfVertex *line2, sfVector2f *res)
