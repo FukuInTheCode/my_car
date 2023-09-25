@@ -33,6 +33,8 @@ int main(int argc, char* argv[])
     my_car_free((void *)&carz, (void *)&map);
     my_car_free((void *)&carz2, (void *)&map);
 
+    my_map_free(&map);
+
 #if 0
     // env var
     // car var
