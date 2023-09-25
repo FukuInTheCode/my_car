@@ -12,7 +12,8 @@
         "graphics.h": "c",
         "my_car.h": "c",
         "my_matrix.h": "c",
-        "cstdlib": "c"
+        "cstdlib": "c",
+        "my_map_free.C": "cpp"
     },
     "epilinter.tokenizer_address": "ws://54.36.183.139:8081"
 }
